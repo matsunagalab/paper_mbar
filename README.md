@@ -1,8 +1,8 @@
 # MBAR input files used in Matsunaga et al.
 
-This repository contains input files for MBAR calculations, used in "Implementation of multistate Bennett acceptance ratio for versatile thermodynamic ensembles" by Matsunaga et al.
+This repository contains input files for MBAR calculations used in "Implementation of multistate Bennett acceptance ratio for versatile thermodynamic ensembles" by Matsunaga et al.
 
-The files covers all the MBAR calculations exceptfor the QM/MM case, the files of which are available from the authors upon reasonable request. 
+The files covers all the MBAR calculations except for the QM/MM case, the files of which are available from the authors upon reasonable request. 
 
 All of the input files for mbar_analysis tool provided with the molecular dynamcis simulation software GENESIS. You need to install GENESIS before using mbar_analysis. 
 
