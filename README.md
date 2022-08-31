@@ -18,7 +18,7 @@ The files are organied as follows:
 
   - [inp](https://github.com/matsunagalab/differentiable_BTR/blob/main/remd_alat/5_analysis/mbar/inp) MBAR input file for T-REMD data
 
-## Acknowledgement and Citation
+## Acknowledgement
 
 We acknowledgement the authors of GENESIS tutorials https://www.r-ccs.riken.jp/labs/cbrt/tutorials2022/ . Some of the input files are based on the tutorial files. 
 
