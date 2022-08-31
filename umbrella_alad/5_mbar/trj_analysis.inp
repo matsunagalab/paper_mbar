@@ -1,0 +1,20 @@
+[INPUT]
+psffile       = ../1_setup/1_oripdb/ala3.psf  # protein structure file
+reffile       = ../1_setup/1_oripdb/ala3.pdb #PDB file
+ 
+[OUTPUT]
+torfile       = run.tor                       # torsion file
+ 
+[TRAJECTORY]
+trjfile1      = run.dcd    # trajectory file
+md_step1      = 5000000                  # number of MD steps
+mdout_period1 = 500                     # MD output period
+ana_period1   = 500                     # analysis period
+repeat1       = 1
+trj_format    = DCD                     # (PDB/DCD)
+trj_type      = COOR                # (COOR/COOR+BOX)
+trj_natom     = 0                       # (0:uses reference PDB atom count)
+
+[OPTION]
+torsion1      = PROA:1:ALA:CA PROA:1:ALA:C PROA:2:ALA:N PROA:2:ALA:CA
+

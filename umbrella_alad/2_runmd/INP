@@ -1,0 +1,37 @@
+[INPUT]
+topfile = ../toppar/top_all36_prot.rtf   # topology file
+parfile = ../toppar/par_all36m_prot.prm  # parameter file
+psffile = ../1_setup/1_oripdb/ala3.psf   # protein structure file
+pdbfile = ../1_setup/1_oripdb/ala3.pdb   # PDB file
+ 
+[OUTPUT]
+dcdfile = md.dcd            # Coordinates trajectory file
+
+[ENERGY]
+forcefield       = CHARMM   # CHARMM force field
+electrostatic    = CUTOFF   # cutoff scheme is used
+switchdist       =   98.0   # switch distance
+cutoffdist       =   99.0   # cutoff distance
+pairlistdist     =  100.0   # pair-list distance
+vdw_force_switch =    YES   # force switch option for van der Waals 
+ 
+[DYNAMICS]
+integrator       =   VVER   # velocity Verlet
+nsteps           = 500000   # number of MD steps
+timestep         =  0.002   # timestep (ps)
+eneout_period    =    500   # energy output period
+crdout_period    =    500   # coordinates output period
+stoptr_period    =     10   # remove translational and rotational motions period
+nbupdate_period  =     10   # nonbond update period
+iseed            =  31415   # random number seed
+ 
+[CONSTRAINTS]
+rigid_bond       = YES      # use SHAKE/RATTLE
+ 
+[ENSEMBLE]
+ensemble         = NVT      # Canonical ensemble
+tpcontrol        = BUSSI    # Bussi thermostat
+temperature      = 298.15   # initial and target temperature (K)
+
+[BOUNDARY]
+type             = NOBC     # non-periodic system
