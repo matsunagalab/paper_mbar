@@ -12,7 +12,7 @@ The files are organied as follows:
 
 - [umbrella_alad/](https://github.com/matsunagalab/paper_mbar/tree/main/umbrella_alad) contains Umbrella sampling files for alanine-dipeptide in vacuum
 
-  - [inp](https://github.com/matsunagalab/paper_mbar/blob/main/umbrella_alad/5_mbar/mbar_analysis.inp) MBAR input file for Umbrella sampling data
+  - [umbrella_alad/5_mbar/mbar_analysis.inp](https://github.com/matsunagalab/paper_mbar/blob/main/umbrella_alad/5_mbar/mbar_analysis.inp) MBAR input file for Umbrella sampling data
 
 - [remd_alat/](https://github.com/matsunagalab/mbar_paper/tree/main/remd_alat) contains T-REMD files for tri-alanine
 
