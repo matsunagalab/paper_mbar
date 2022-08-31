@@ -10,9 +10,9 @@ All of the input files for mbar_analysis tool provided with the molecular dynamc
 
 The files are organied as follows:
 
-- [umbrella_alad/](https://github.com/matsunagalab/mbar_paper/tree/main/umbrella_alad) contains Umbrella sampling files for alanine-dipeptide in vacuum
+- [umbrella_alad/](https://github.com/matsunagalab/paper_mbar/tree/main/umbrella_alad) contains Umbrella sampling files for alanine-dipeptide in vacuum
 
-  - [inp](https://github.com/matsunagalab/mbar_paper/blob/main/umbrella_alad/5_mbar/mbar_analysis.inp) MBAR input file for Umbrella sampling data
+  - [inp](https://github.com/matsunagalab/paper_mbar/blob/main/umbrella_alad/5_mbar/mbar_analysis.inp) MBAR input file for Umbrella sampling data
 
 - [remd_alat/](https://github.com/matsunagalab/mbar_paper/tree/main/remd_alat) contains T-REMD files for tri-alanine
 
