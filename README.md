@@ -28,11 +28,11 @@ The files are organied as follows:
 
 ## Acknowledgement
 
-We acknowledgement the authors of GENESIS tutorials https://www.r-ccs.riken.jp/labs/cbrt/tutorials2022/ . Some of the input files are based on the tutorial files. 
+We thank the authors of GENESIS tutorials https://www.r-ccs.riken.jp/labs/cbrt/tutorials2022/ . Some of the input files are based on the tutorial files. 
 
 ## License
 
-This repository is licensed under the under the terms of GNU General Public License v3.0. 
+This repository is licensed under the under the terms of GNU General Public License v3.0 (except for the files taken from GENESIS tutorials).
  
 ## Contact
 
