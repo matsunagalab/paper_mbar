@@ -1,0 +1,173 @@
+Info) VMD for LINUXAMD64, version 1.9.2 (December 29, 2014)
+Info) http://www.ks.uiuc.edu/Research/vmd/                         
+Info) Email questions and bug reports to vmd@ks.uiuc.edu           
+Info) Please include this reference in published work using VMD:   
+Info)    Humphrey, W., Dalke, A. and Schulten, K., `VMD - Visual   
+Info)    Molecular Dynamics', J. Molec. Graphics 1996, 14.1, 33-38.
+Info) -------------------------------------------------------------
+Info) Multithreading available, 24 CPUs detected.
+Info) Free system memory: 61311MB (95%)
+Info) Creating CUDA device pool and initializing hardware...
+Info) Detected 1 available CUDA accelerator:
+Info) [0] Quadro K420         1 SM_3.0 @ 0.88 GHz,  979MB RAM, KTO, AE1, ZCP
+Info) Dynamically loaded 2 plugins in directory:
+Info) /usr/local/lib/vmd/plugins/LINUXAMD64/molfile
+/usr/local/lib/vmd/scripts/tcl8.5 /usr/local/lib/vmd/scripts /usr/local/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /usr/local/lib/vmd/scripts/vmd /usr/local/lib/vmd/plugins/LINUXAMD64/tcl /usr/local/lib/vmd/plugins/noarch/tcl /home/oshima/Soft/vmd_scripts/la1.0
+/usr/local/lib/vmd/scripts/tcl8.5 /usr/local/lib/vmd/scripts /usr/local/lib/lib /Projects/johns/tcl/8.5.6/lib_LINUXAMD64/lib /usr/local/lib/vmd/scripts/vmd /usr/local/lib/vmd/plugins/LINUXAMD64/tcl /usr/local/lib/vmd/plugins/noarch/tcl /home/oshima/Soft/vmd_scripts/la1.0 /home/oshima/Soft/vmd_scripts/orient
+1.6.2
+psfgen) reading topology file top_all36_cgenff.rtf
+
+psfgen)   --------------------------------------------------------------------------  *
+psfgen)           CGenFF: Topology for the Charmm General Force Field v. 3.0.1        *
+psfgen)                     for Small Molecule Drug Design                            *
+psfgen)   --------------------------------------------------------------------------  *
+psfgen) 
+psfgen) Created by CHARMM version 36 1
+psfgen) reading topology file V2R.top
+
+psfgen) building segment V2R
+psfgen) reading residues from pdb file V2R.pdb
+psfgen) extracted 1 residues from pdb file
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) reading coordinates from pdb file V2R.pdb for segment V2R
+psfgen) Info: writing psf file solute.psf
+psfgen) total of 26 atoms
+psfgen) total of 27 bonds
+psfgen) total of 49 angles
+psfgen) total of 69 dihedrals
+psfgen) total of 0 impropers
+psfgen) Structure requires EXTended PSF format
+psfgen) total of 0 cross-terms
+psfgen) Info: psf file complete.
+psfgen) Info: writing pdb file solute.pdb
+psfgen) Info: pdb file complete.
+1.6
+Info) Loading the structure for rotation...
+Info) Using plugin pdb for structure file solute.pdb
+Info) Using plugin pdb for coordinates from file solute.pdb
+Info) Determining bond structure from distance search ...
+Info) Finished with coordinate file solute.pdb.
+Info) Analyzing structure ...
+Info)    Atoms: 26
+Info)    Bonds: 41
+Info)    Angles: 0  Dihedrals: 0  Impropers: 0  Cross-terms: 0
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 1
+Info)    Waters: 0
+Info)    Segments: 1
+Info)    Fragments: 1   Protein: 0   Nucleic: 0
+Info) done
+Info) Initial volume is 66.25993186167848
+Info) Rotating the system...
+Info) done
+Info) 
+Info) New volume is 63.373549105349106
+Info) The system was rotated by 280.0 degrees around Z axis and 360.0 degrees around X axis.
+Info) Opened coordinate file solute.pdb-rotated-tmp.pdb for writing.
+Info) Finished with coordinate file solute.pdb-rotated-tmp.pdb.
+Info) generating solute plus one replica of water...
+psfgen) reading structure from psf file solute.psf
+psfgen) psf file does not contain cross-terms
+psfgen) reading coordinates from pdb file solute.pdb-rotated-tmp.pdb
+psfgen) reading structure from psf file /usr/local/lib/vmd/plugins/noarch/tcl/solvate1.6/wat.psf
+psfgen) psf file does not contain cross-terms
+psfgen) reading coordinates from pdb file /usr/local/lib/vmd/plugins/noarch/tcl/solvate1.6/wat.pdb
+psfgen) Info: writing psf file combine.psf
+psfgen) total of 27809 atoms
+psfgen) total of 18549 bonds
+psfgen) total of 18571 angles
+psfgen) total of 69 dihedrals
+psfgen) total of 0 impropers
+psfgen) Structure requires EXTended PSF format
+psfgen) total of 0 cross-terms
+psfgen) Info: psf file complete.
+psfgen) Info: writing pdb file combine.pdb
+psfgen) Info: pdb file complete.
+psfplugin) Detected a Charmm PSF EXTEnded file
+Info) Using plugin psf for structure file combine.psf
+psfplugin) WARNING: no impropers defined in PSF file.
+psfplugin) no cross-terms defined in PSF file.
+Info) Analyzing structure ...
+Info)    Atoms: 27809
+Info)    Bonds: 18549
+Info)    Angles: 18571  Dihedrals: 69  Impropers: 0  Cross-terms: 0
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 9262
+Info)    Waters: 9261
+Info)    Segments: 2
+Info)    Fragments: 9262   Protein: 0   Nucleic: 0
+Info) Using plugin pdb for coordinates from file combine.pdb
+Info) Finished with coordinate file combine.pdb.
+Info) generating water residue lists...
+Info) single water residue type, creating residue list...
+Info) replicating 1 water segments, 1 by 1 by 1
+psfgen) reading topology file /usr/local/lib/vmd/plugins/noarch/tcl/solvate1.6/wat.top
+
+psfgen) >>>>>> Combined CHARMM All-Hydrogen Topology File for <<<<<<<<<
+psfgen) >>>>>>>>> CHARMM22 Proteins and CHARMM27 Lipids <<<<<<<<<<
+psfgen) from
+psfgen) >>>>>>>>CHARMM22 All-Hydrogen Topology File for Proteins <<<<<<
+psfgen) >>>>>>>>>>>>>>>>>>>>> August 1999 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+psfgen) >>>>>>> Direct comments to Alexander D. MacKerell Jr. <<<<<<<<<
+psfgen) >>>>>> 410-706-7442 or email: alex,mmiris.ab.umd.edu  <<<<<<<<<
+psfgen) and
+psfgen)   \\\\\\\ CHARMM27 All-Hydrogen Lipid Topology File ///////
+psfgen)   \\\\\\\\\\\\\\\\\\ Developmental /////////////////////////
+psfgen) 		Alexander D. MacKerell Jr.
+psfgen) 			August 1999
+psfgen)  All comments to ADM jr.  email: alex,mmiris.ab.umd.edu
+psfgen) 		telephone: 410-706-7442
+psfgen) 
+psfgen) Created by CHARMM version 27 1
+psfgen) building segment WT1
+psfgen) setting patch for first residue to NONE
+psfgen) setting patch for last residue to NONE
+psfgen) Info: generating structure...segment complete.
+psfgen) Info: writing psf file solvate.psf
+psfgen) total of 13250 atoms
+psfgen) total of 8843 bonds
+psfgen) total of 4457 angles
+psfgen) total of 69 dihedrals
+psfgen) total of 0 impropers
+psfgen) Structure requires EXTended PSF format
+psfgen) total of 0 cross-terms
+psfgen) Info: psf file complete.
+psfgen) Info: writing pdb file solvate.pdb
+psfgen) Info: pdb file complete.
+psfgen) clearing structure, preserving topology and aliases
+psfplugin) Detected a Charmm PSF EXTEnded file
+Info) Using plugin psf for structure file solvate.psf
+psfplugin) WARNING: no impropers defined in PSF file.
+psfplugin) no cross-terms defined in PSF file.
+Info) Analyzing structure ...
+Info)    Atoms: 13250
+Info)    Bonds: 8843
+Info)    Angles: 4457  Dihedrals: 69  Impropers: 0  Cross-terms: 0
+Info)    Bondtypes: 0  Angletypes: 0  Dihedraltypes: 0  Impropertypes: 0
+Info)    Residues: 4409
+Info)    Waters: 4408
+Info)    Segments: 2
+Info)    Fragments: 4409   Protein: 0   Nucleic: 0
+Info) Using plugin pdb for coordinates from file solvate.pdb
+Info) Finished with coordinate file solvate.pdb.
+Info) Opened coordinate file solvate.pdb for writing.
+Info) Finished with coordinate file solvate.pdb.
+Info) Extra structure overlap safety check...
+Info) Solvate completed successfully.
+atomselect7
+Info) Opened coordinate file ionize.pdb for writing.
+Info) Finished with coordinate file ionize.pdb.
+psfplugin) Structure requires EXTended PSF format
+psfplugin) Writing angles/dihedrals/impropers...
+Info) Opened coordinate file ionize.psf for writing.
+Info) Finished with coordinate file ionize.psf.
+{-26.04936408996582 -26.07514762878418 -26.032320022583008} {25.94263458251953 25.90285301208496 25.90768051147461}
+Box size estimation:
+boxsizex = 52.99199867248535
+boxsizey = 52.97800064086914
+boxsizez = 52.94000053405762
+Info) VMD for LINUXAMD64, version 1.9.2 (December 29, 2014)
+Info) Exiting normally.
+vmd > 

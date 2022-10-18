@@ -1,0 +1,65 @@
+[INPUT]
+topfile = ../1_setup/top_all36_prot.rtf, ../1_setup/top_all36_cgenff.rtf
+parfile = ../1_setup/par_all36_prot.prm, ../1_setup/par_all36_cgenff.prm
+strfile = ../1_setup/toppar_water_ions.str
+psffile = ../1_setup/ionize.psf
+pdbfile = ../1_setup/ionize.pdb
+rstfile = ../3_equil/output/run.rst
+alchfile = ../1_setup/ionize.fep
+
+[OUTPUT]
+dcdfile = output/run.dcd{}
+rstfile = output/run.rst{}
+logfile = output/run.out{}
+fepfile = output/run.fepout{}
+
+[REMD]
+dimension        = 1
+exchange_period  = 0
+type1            = alchemy
+nreplica1        = 26
+
+[ALCHEMY]
+fepfile_period   = 50
+sc_alpha         = 4.0
+sc_beta          = 0.5
+equilsteps       = 50000
+lamblj_vanish = 1.0  1.0  1.0  1.0  1.0  1.0  0.95 0.9  0.85 0.8  0.75 0.7  0.65 0.6  0.55 0.5  0.45 0.4  0.35 0.3  0.25 0.2  0.15 0.1  0.05 0.0
+lamblj_appear = 0.0  0.05 0.1  0.15 0.2  0.25 0.3  0.35 0.4  0.45 0.5  0.55 0.6  0.65 0.7  0.75 0.8  0.85 0.9  0.95 1.0  1.0  1.0  1.0  1.0  1.0
+lambel_vanish = 1.0  0.8  0.6  0.4  0.2  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0
+lambel_appear = 0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.2  0.4  0.6  0.8  1.0
+
+[ENERGY]
+electrostatic    = PME
+switchdist       = 10.0
+cutoffdist       = 12.0
+pairlistdist     = 13.5
+pme_alpha_tol    = 10e-6
+pme_nspline      = 4
+vdw_force_switch = YES
+forcefield       = CHARMM
+pme_ngrid_x      = 48
+pme_ngrid_y      = 48
+pme_ngrid_z      = 48
+#contact_check = yes
+ 
+[DYNAMICS]
+integrator       = LEAP
+nsteps           = 50000
+timestep         = 0.002
+eneout_period    = 50
+crdout_period    = 500
+rstout_period    = 50000
+stoptr_period    = 0
+ 
+[CONSTRAINTS]
+rigid_bond       = YES
+
+[ENSEMBLE]
+ensemble         = NPT
+temperature      = 300.0
+tpcontrol        = LANGEVIN
+pressure         = 1.0
+
+[BOUNDARY]
+type             = PBC

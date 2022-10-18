@@ -1,0 +1,357 @@
+****************************************************
+*                                                  *
+*                  GENESIS SPDYN                   *
+*                                                  *
+*        A Molecular Dynamics Simulator with       *
+*           Spatial Decomposition Scheme           *
+*                                                  *
+*              Developed by RIKEN AICS             *
+*                                                  *
+****************************************************
+ 
+[STEP0] Architecture and Compiler Information
+ 
+GENESIS_Information> GENESIS Information
+  version      = 1.1.0
+  commit ID    = $GENESIS_VERSION$
+  precision    = double
+  nonbonding   = CPU
+
+Build_Information> Compiler Information
+  build host   = oshima@squid
+  fortran      = ifort (IFORT) 15.0.4 20150805
+  option       = -xHost -O3 -ip -mkl=parallel  -assume byterecl -openmp 
+  C            = icc (ICC) 15.0.4 20150805
+  option       = -O3 -ip -axCORE-AVX2  -openmp
+  defined var. =  -DMPI -DOMP -DFFTE -DLAPACK -DDSFMT_MEXP=19937 -DINTEL
+  link option  = 
+  -assume byterecl -openmp -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_la
+ pack95_lp64 
+
+Runtime_Information> Machine and Library Information
+  date       = 2017/05/12 04:00:38
+  cpu model    = Intel(R) Xeon(R) CPU E5-2690 0 @ 2.90GHz
+  exec. host   = oshima@squid06
+  LD library   = 
+ /home/oshima/Soft/amber16/lib:/usr/local/cuda-6.5/lib64:/home/mdsoft/mpi/mpi_ce
+ nt-v6_intel64/openmpi-v1.10.1_intel_v15.0.4/lib:/opt/intel/composer_xe_2015.5.2
+ 23/compiler/lib/intel64:/opt/intel/composer_xe_2015.5.223/mkl/lib/intel64:/opt/
+ intel/composer_xe_2015.5.223/compiler/lib/intel64:/opt/intel/composer_xe_2015.5
+ .223/mpirt/lib/intel64:/opt/intel/composer_xe_2015.5.223/ipp/../compiler/lib/in
+ tel64:/opt/intel/composer_xe_2015.5.223/ipp/lib/intel64:/opt/intel/composer_xe_
+ 2015.5.223/ipp/tools/intel64/perfsys:/opt/intel/composer_xe_2015.5.223/compiler
+ /lib/intel64:/opt/intel/composer_xe_2015.5.223/mkl/lib/intel64:/opt/intel/compo
+ ser_xe_2015.5.223/tbb/lib/intel64/gcc4.4:/opt/intel/composer_xe_2015.5.223/debu
+ gger/libipt/intel64/lib:/home/oshima/Soft/amber16/lib:/usr/local/cuda-6.5/lib64
+ :/home/mdsoft/mpi/mpi_cent-v6_intel64/openmpi-v1.10.1_intel_v15.0.4/lib:/opt/in
+ tel/composer_xe_2015.5.223/compiler/lib/intel64:/opt/intel/composer_xe_2015.5.2
+ 23/mkl/lib/intel64:/opt/intel/composer_xe_2015.5.223
+
+[STEP1] Read Control Parameters
+ 
+Read_Ctrl_Input> Input Files
+  topfile = ../1_setup/top_all36_prot.rtf, ../1_setup/top_all36_cgenff.rtf
+  parfile = ../1_setup/par_all36_prot.prm, ../1_setup/par_all36_cgenff.prm
+  strfile = ../1_setup/toppar_water_ions.str
+  psffile = ../1_setup/ionize.psf
+  pdbfile = ../1_setup/ionize.pdb
+  alchfile = ../1_setup/ionize.fep
+ 
+Read_Ctrl_Output> Output Files
+  dcdfile    = output/run.dcd
+  rstfile    = output/run.rst
+ 
+ 
+Read_Ctrl_ALCHEMY> Alchemy information
+  fepfile_period =        100
+  equilsteps     =          0
+  sc_alpha       =  4.00
+  sc_beta        =  0.50
+  lamblj_vanish  = 1.0
+  lamblj_appear  = 1.0
+  lambel_vanish  = 0.5
+  lambel_appear  = 0.5
+  fep_direction  = Bothsides
+
+Read_Ctrl_Energy> Parameters of Energy Calculations
+  forcefield      =     CHARMM
+  switchdist      =     10.000  cutoffdist      =     12.000
+  pairlistdist    =     13.500  dielec_const    =      1.000
+ vdW force_switch =         no
+  electrostatic   =        PME
+  pme_nspline     =          4
+  pme_alpha       =    0.22664  pme_alpha_tol   =  0.100E-04
+  fft_scheme      = 1DALLTOALL
+  table_order     =          1
+  table_density   =     20.000
+  water_model     =       NONE
+  output_style    =    GENESIS
+  dispersion_corr =       none
+  nonb_limiter    =     yes
+ minimum_contact  =      0.500
+  contact_check   =     yes
+  minimum_contact =      0.500
+ 
+Read_Ctrl_Minimize> Parameters of MIN
+  method          =         SD  nsteps          =       5000
+  eneout_period   =        100  crdout_period   =        500
+  rstout_period   =       5000  nbupdate_period =         10
+  force_scale_init=      0.000  force_scale_max =      0.000
+  verbose         =         no
+ 
+Read_Ctrl_Boundary> Parameters of Boundary Condition
+  type            =        PBC
+  box_size(x,y,z) =     52.000    52.000    52.000
+ 
+Read_Ctrl_Selection> Parameters of Selection
+  # of groups     =          0
+  # of mole names =          0
+ 
+Read_Ctrl_Restraints> No restraint in the system
+
+[STEP2] Setup MPI
+ 
+Setup_Mpi_Md> Summary of Setup MPI
+  number of MPI processes   =          8
+  number of OpenMP threads  =          8
+  total number of CPU cores =         64
+
+[STEP3] Set Relevant Variables and Structures
+ 
+Input_Top> Summary of Topfile
+  num_atom_class  =        209  num_resi_type   =        636
+ 
+Input_Par> Summary of Parfile
+  num_bonds       =        624  num_angles      =       1881
+  num_dihedrals   =       4502  num_impropers   =        157
+  num_atom_cls    =        209  num_nbfix       =          0
+  num_cmap_terms  =          6
+ 
+Input_Str> Summary of Top information
+  num_atom_class  =        224  num_resi_type   =        650
+ 
+Input_Str> Summary of Par information
+  num_bonds       =        627  num_angles      =       1882
+  num_dihedrals   =       4502  num_impropers   =        157
+  num_atom_cls    =        224  num_nbfix       =         11
+  num_cmap_terms  =          6
+ 
+Read_Psf> Summary of Psffile
+  psftype         =      xplor
+  num_atoms       =      13250  num_bonds       =       8843
+  num_angles      =       4457  num_dihedrals   =         69
+  num_impropers   =          0  num_cmap_terms  =          0
+  num_HB_donors   =          0  num_HB_acceptors=          0
+  num_NB_exclusion=          0  num_groups      =          1
+  total_charge    =      0.000
+ 
+Read_Pdb> there are no segment (renamed "A   ")
+ 
+Read_Pdb> Summary of Data in PDB file
+  num_atoms       =      13250
+ 
+Read_Pdb> there are no segment (renamed "A   ")
+ 
+Read_Pdb> Summary of Data in PDB file
+  num_atoms       =      13250
+ 
+Delete Bonds> Summary of delete bond lists
+Delete          0 bonds
+
+ 
+Delete Angles> Summary of delete angle lists
+Delete          1 angles
+       5       1      12
+ 
+Delete Dihedrals> Summary of delete dihedral lists
+Delete          5 dihedrals
+       5       1      12      14       5       1      12      13
+      12       1       5       6      12       1       5       7
+      12       1       5       8
+ 
+Delete Impropers> Summary of delete improper lists
+Delete          0 impropers
+
+ 
+Define_Molecule> Summary of molecules for FEP
+  num_atoms                   13250  num_bonds_preserve           8819
+  num_bonds_appear               17  num_bonds_vanish                7
+  num_angles_preserve          4411  num_angles_appear              30
+  num_angles_vanish              15  num_dihedrals_preserve          0
+  num_dihedrals_appear           46  num_dihedrals_vanish           18
+  num_impropers_preserve          0  num_impropers_appear            0
+  num_impropers_vanish            0  num_cmap_terms                  0
+  num_residues                 4409  num_molecules                4409
+  num_segments                    2  num_deg_freedom             39750
+  total_charge                0.000
+ 
+Setup_Boundary_Cell> Set Variables for Boundary Condition
+  domains (x,y,z) =          2         2         2
+  ncells (x,y,z)  =          6         6         6
+ 
+WARNING: too small distances:         8        13   0.43645
+WARNING: too small distances:         5        12   0.04291
+Setup_Enefunc_Cmap> Natural spline is used to derive cmap coefs.
+
+Define_Enefunc_Charmm> Number of Interactions in Each Term
+  bond_ene        =       8843  angle_ene       =       4456
+  torsion_ene     =         64  improper_ene    =          0
+  cmap_ene        =          0
+  nb_exclusions   =      13299  nb14_calc       =         56
+ 
+
+Setup_PME> Proper PME grid number was generated automatically
+  pme_ngrid(x,y,z)=         48        48        48
+
+Setup_Alchemy_Min> Alchemy information
+  sc_alpha       =    4.00000
+  sc_beta        =    0.50000
+  lamblj_vanish  =    1.00000
+  lamblj_appear  =    1.00000
+  lambel_vanish  =    0.50000
+  lambel_appear  =    0.50000
+  fep_direction  = NONE     
+
+Setup_Spdyn_Min> nonb_limiter : minimim distance=   0.61418620
+
+[STEP4] Compute Single Point Energy for Molecules
+ 
+lamblj_vanish(1) =  1.00
+lamblj_appear(1) =  1.00
+lambel_vashin(1) =  0.50
+lambel_appear(1) =  0.50
+            STEP            BOND           ANGLE    UREY-BRADLEY        DIHEDRAL         VDWAALS           ELECT
+ --------------- --------------- --------------- --------------- ---------------
+               0       4095.9491        956.6517          0.2258          1.2099    1288328.8335     -45187.8026
+
+[STEP5] Perform FEP Energy Minimization
+ 
+INFO:       STEP   POTENTIAL_ENE            RMSG            BOND           ANGLE    UREY-BRADLEY        DIHEDRAL         VDWAALS           ELECT
+ --------------- --------------- --------------- --------------- ---------------
+INFO:          0    1248195.0673      89643.3441       4095.9491        956.6517          0.2258          1.2099    1288328.8335     -45187.8026
+
+INFO:        100     -33594.3099         22.7888       3390.6274        972.9819          0.2035          1.2102       7518.3485     -45477.6813
+
+INFO:        200     -38880.1098          7.6218       1582.2899        845.9693          0.1328          1.2108       5120.2232     -46429.9360
+
+INFO:        300     -41080.7049          4.2140       1300.2266        835.9566          0.0811          1.2129       4345.7872     -47563.9692
+
+INFO:        400     -42492.5171          3.0471       1243.1876        944.5905          0.0627          1.2177       3964.4675     -48646.0431
+
+INFO:        500     -43576.3956          2.4578       1243.1125       1022.9214          0.0593          1.2226       3753.1920     -49596.9035
+
+INFO:        600     -44471.9625          2.0699       1261.9652       1056.3297          0.0616          1.2260       3627.8792     -50419.4241
+
+INFO:        700     -45235.0975          1.7823       1285.5145       1070.8152          0.0651          1.2275       3553.6431     -51146.3629
+
+INFO:        800     -45897.4888          1.5589       1309.4230       1079.1712          0.0679          1.2276       3514.1814     -51801.5600
+
+INFO:        900     -46480.2064          1.3803       1332.6904       1085.2567          0.0699          1.2269       3500.6903     -52400.1405
+
+INFO:       1000     -46998.9124          1.2345       1355.1558       1090.2298          0.0711          1.2260       3507.6654     -52953.2604
+
+INFO:       1100     -47465.0930          1.1136       1376.8313       1094.5816          0.0717          1.2251       3531.3554     -53469.1582
+
+INFO:       1200     -47886.8495          1.0119       1397.7791       1098.5982          0.0720          1.2245       3569.0579     -53953.5813
+
+INFO:       1300     -48271.5711          0.9255       1418.0717       1102.4641          0.0721          1.2240       3618.6536     -54412.0566
+
+INFO:       1400     -48624.5066          0.8514       1437.7870       1106.2932          0.0720          1.2238       3678.4333     -54848.3159
+
+INFO:       1500     -48949.8014          0.7870       1456.9728       1110.1596          0.0719          1.2238       3746.9401     -55265.1695
+
+INFO:       1600     -49251.1963          0.7306       1475.6525       1114.1138          0.0717          1.2239       3822.8857     -55665.1439
+
+INFO:       1700     -49531.3203          0.6807       1493.8282       1118.2239          0.0714          1.2241       3905.0770     -56049.7448
+
+INFO:       1800     -49792.8864          0.6362       1511.5158       1122.4965          0.0712          1.2243       3992.4748     -56420.6691
+
+INFO:       1900     -50037.5464          0.5964       1528.7294       1126.9015          0.0709          1.2246       4084.1636     -56778.6365
+
+INFO:       2000     -50267.4877          0.5606       1545.4791       1131.3797          0.0707          1.2249       4179.2097     -57124.8518
+
+INFO:       2100     -50483.7795          0.5286       1561.7515       1135.8818          0.0705          1.2251       4276.6024     -57459.3110
+
+INFO:       2200     -50687.6841          0.5000       1577.5491       1140.3755          0.0703          1.2253       4375.3266     -57782.2308
+
+INFO:       2300     -50881.4350          0.4746       1592.8544       1144.8506          0.0702          1.2254       4474.3321     -58094.7676
+
+INFO:       2400     -51065.1788          0.4520       1607.6588       1149.3175          0.0700          1.2256       4572.7490     -58396.1997
+
+INFO:       2500     -51240.9844          0.4319       1621.9851       1153.7991          0.0699          1.2257       4670.0294     -58688.0935
+
+INFO:       2600     -51408.7647          0.4135       1635.8701       1158.3054          0.0697          1.2258       4766.0905     -58970.3262
+
+INFO:       2700     -51569.5061          0.3961       1649.3692       1162.8328          0.0696          1.2259       4861.2171     -59244.2207
+
+INFO:       2800     -51723.5775          0.3795       1662.5066       1167.3588          0.0694          1.2260       4955.6624     -59510.4009
+
+INFO:       2900     -51871.2119          0.3640       1675.2731       1171.8634          0.0693          1.2262       5049.3173     -59768.9612
+
+INFO:       3000     -52013.1050          0.3498       1687.6433       1176.3224          0.0692          1.2263       5141.7116     -60020.0778
+
+INFO:       3100     -52149.7761          0.3369       1699.6086       1180.7235          0.0690          1.2265       5232.4137     -60263.8173
+
+INFO:       3200     -52281.4557          0.3245       1711.1946       1185.0575          0.0689          1.2266       5321.3505     -60500.3538
+
+INFO:       3300     -52408.1746          0.3126       1722.4267       1189.3020          0.0688          1.2266       5408.6105     -60729.8093
+
+INFO:       3400     -52530.2718          0.3012       1733.3160       1193.4497          0.0687          1.2266       5494.1171     -60952.4499
+
+INFO:       3500     -52647.7778          0.2906       1743.8727       1197.4971          0.0686          1.2264       5577.7240     -61168.1666
+
+INFO:       3600     -52761.1244          0.2805       1754.1201       1201.4156          0.0686          1.2262       5659.4783     -61377.4331
+
+INFO:       3700     -52870.5451          0.2707       1764.0735       1205.1838          0.0685          1.2258       5739.4599     -61580.5567
+
+INFO:       3800     -52976.2968          0.2616       1773.7127       1208.8133          0.0685          1.2253       5817.4719     -61777.5886
+
+INFO:       3900     -53078.6353          0.2533       1783.0464       1212.3552          0.0686          1.2246       5893.5479     -61968.8780
+
+INFO:       4000     -53177.5735          0.2448       1792.1177       1215.8439          0.0685          1.2238       5968.0709     -62154.8984
+
+INFO:       4100     -53273.1572          0.2361       1800.9224       1219.2814          0.0685          1.2228       6041.1000     -62335.7522
+
+INFO:       4200     -53365.1205          0.2276       1809.4382       1222.6784          0.0685          1.2215       6112.3803     -62510.9076
+
+INFO:       4300     -53454.0487          0.2197       1817.6561       1226.0218          0.0685          1.2200       6181.4269     -62680.4419
+
+INFO:       4400     -53539.9205          0.2125       1825.5787       1229.2405          0.0684          1.2183       6247.7887     -62843.8150
+
+INFO:       4500     -53623.0785          0.2059       1833.2200       1232.3184          0.0683          1.2162       6311.3710     -63001.2724
+
+INFO:       4600     -53703.7840          0.2000       1840.5913       1235.2737          0.0682          1.2138       6372.3315     -63153.2625
+
+INFO:       4700     -53782.3292          0.1949       1847.7190       1238.1333          0.0681          1.2111       6430.9015     -63300.3623
+
+INFO:       4800     -53858.6882          0.1899       1854.6372       1240.9137          0.0680          1.2080       6487.3624     -63442.8774
+
+INFO:       4900     -53933.1200          0.1849       1861.3758       1243.5902          0.0678          1.2045       6541.9649     -63581.3232
+
+INFO:       5000     -54005.6954          0.1792       1867.9419       1246.1659          0.0676          1.2005       6595.0128     -63716.0841
+
+ 
+[STEP6] Deallocate Arrays
+ 
+Output_Time> Averaged timer profile (Min, Max)
+  total time      =      42.692
+    setup         =       0.610
+    dynamics      =      42.082
+      energy      =      37.680
+      integrator  =       0.639
+      pairlist    =       1.630 (       1.503,       1.737)
+  energy           
+    bond          =       0.070 (       0.048,       0.086)
+    angle         =       0.088 (       0.067,       0.104)
+    dihedral      =       0.086 (       0.054,       0.106)
+    nonbond       =      33.201 (      33.024,      33.397)
+      pme real    =      15.558 (      14.528,      17.110)
+      pme recip   =      17.624 (      16.078,      18.821)
+    restraint     =       0.000 (       0.000,       0.000)
+  integrator       
+    constraint    =       0.000 (       0.000,       0.000)
+    update        =       0.000 (       0.000,       0.000)
+    comm_coord    =       0.000 (       0.000,       0.000)
+    comm_force    =       0.000 (       0.000,       0.000)
+    comm_migrate  =       0.000 (       0.000,       0.000)
+

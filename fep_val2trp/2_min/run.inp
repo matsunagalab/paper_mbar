@@ -1,0 +1,45 @@
+[INPUT]
+topfile = ../1_setup/top_all36_prot.rtf, ../1_setup/top_all36_cgenff.rtf
+parfile = ../1_setup/par_all36_prot.prm, ../1_setup/par_all36_cgenff.prm
+strfile = ../1_setup/toppar_water_ions.str
+psffile = ../1_setup/ionize.psf
+pdbfile = ../1_setup/ionize.pdb
+alchfile = ../1_setup/ionize.fep
+
+[OUTPUT]
+dcdfile = output/run.dcd
+rstfile = output/run.rst
+
+[ALCHEMY]
+sc_alpha      = 4.0
+sc_beta       = 0.5
+lamblj_vanish = 1.0
+lamblj_appear = 1.0
+lambel_vanish = 0.5
+lambel_appear = 0.5
+
+[ENERGY]
+electrostatic  = PME
+switchdist     = 10.0
+cutoffdist     = 12.0
+pairlistdist   = 13.5
+pme_alpha      = auto
+contact_check  = yes
+ 
+[MINIMIZE]
+nsteps        = 5000
+eneout_period = 100
+crdout_period = 500
+rstout_period = 5000
+
+[BOUNDARY]
+type          = PBC
+box_size_x    = 52.0
+box_size_y    = 52.0
+box_size_z    = 52.0
+
+[SELECTION]
+
+[RESTRAINTS]
+
+

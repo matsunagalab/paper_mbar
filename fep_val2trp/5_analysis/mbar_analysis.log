@@ -1,0 +1,1055 @@
+****************************************************
+*                                                  *
+*                   MBAR_ANALYSIS                  *
+*                                                  *
+*        Utility to analyze trajectory files       *
+*                                                  *
+*              Developed by RIKEN                  *
+*                                                  *
+****************************************************
+ 
+[STEP1] Read Control Parameters for Analysis
+ 
+Read_Ctrl_Input> Input Files
+  cvfile          = ../4_prod/output/run.fepout{}
+ 
+Read_Ctrl_Output> Output Files
+  fenefile        = mbar_analysis.out
+ 
+Read_Ctrl_Selection> Parameters of Selection
+  # of groups     =          0
+  # of mole names =          0
+ 
+Read_Ctrl_Option> Parameters of MBAR
+
+  check only      = no
+  # of replicas : 26
+  # of dimension : 1
+  self_iteration  = 10
+  newton_iteration= 100
+  # of blocks     = 3
+  temperature     = 300.00
+  target_temperature =    300.000
+  tolerance       =      0.000
+   dimension :               1
+  rest func no    = 
+  grids           = 
+  output_unit     = kcal/mol
+
+Read_Ctrl_Option> Parameters of Restraints
+
+  # of functions : 0
+
+[STEP2] Set Relevant Variables and Structures
+ 
+Setup_Option> Unit for fene and pmf is set to kcal/mol
+
+[STEP3] Analysis trajectory files
+ 
+Build_Data_K_From_Ene> 
+  number of time steps       :         1001
+
+  read cv file: ../4_prod/output/run.fepout1
+  read cv file: ../4_prod/output/run.fepout2
+  read cv file: ../4_prod/output/run.fepout3
+  read cv file: ../4_prod/output/run.fepout4
+  read cv file: ../4_prod/output/run.fepout5
+  read cv file: ../4_prod/output/run.fepout6
+  read cv file: ../4_prod/output/run.fepout7
+  read cv file: ../4_prod/output/run.fepout8
+  read cv file: ../4_prod/output/run.fepout9
+  read cv file: ../4_prod/output/run.fepout10
+  read cv file: ../4_prod/output/run.fepout11
+  read cv file: ../4_prod/output/run.fepout12
+  read cv file: ../4_prod/output/run.fepout13
+  read cv file: ../4_prod/output/run.fepout14
+  read cv file: ../4_prod/output/run.fepout15
+  read cv file: ../4_prod/output/run.fepout16
+  read cv file: ../4_prod/output/run.fepout17
+  read cv file: ../4_prod/output/run.fepout18
+  read cv file: ../4_prod/output/run.fepout19
+  read cv file: ../4_prod/output/run.fepout20
+  read cv file: ../4_prod/output/run.fepout21
+  read cv file: ../4_prod/output/run.fepout22
+  read cv file: ../4_prod/output/run.fepout23
+  read cv file: ../4_prod/output/run.fepout24
+  read cv file: ../4_prod/output/run.fepout25
+  read cv file: ../4_prod/output/run.fepout26
+  ..done
+
+Build_U_Kl_From_Ene> 
+  ..done
+
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.521846327E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.264750748E+00  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.152578238E+00  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.938858732E-01  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.599919682E-01  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.392313382E-01  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.260357966E-01  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.174453883E-01  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.117639548E-01  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.251077304E-02  tolerance =   0.100000000E-07
+[block     1]    12th iteration  delta =   0.222547535E-01  tolerance =   0.100000000E-07
+[block     1]    13th iteration  delta =   0.573620946E-04  tolerance =   0.100000000E-07
+[block     1]    14th iteration  delta =   0.405733138E-09  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.463561887E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.197082720E+00  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.916214013E-01  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.442550829E-01  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.217603187E-01  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.107920724E-01  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.537504661E-02  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.268269356E-02  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.134033650E-02  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.134087973E-03  tolerance =   0.100000000E-07
+[block     2]    12th iteration  delta =   0.120576685E-02  tolerance =   0.100000000E-07
+[block     2]    13th iteration  delta =   0.171956250E-07  tolerance =   0.100000000E-07
+[block     2]    14th iteration  delta =   0.177049605E-10  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.474398057E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.204306572E+00  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.957485436E-01  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.465155394E-01  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.229784411E-01  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.114433145E-01  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.572152979E-02  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.286637161E-02  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.143741627E-02  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.144869469E-03  tolerance =   0.100000000E-07
+[block     3]    12th iteration  delta =   0.130262323E-02  tolerance =   0.100000000E-07
+[block     3]    13th iteration  delta =   0.464530982E-08  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       0.98108174821802940     
+ f_k =    0.0000000000000000       0.98108174821802940        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.230183144E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.399701166E-01  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.695445591E-02  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.120999938E-02  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.210523763E-03  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.366282281E-04  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.637280267E-05  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.110877875E-05  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.192911580E-06  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.406380244E-08  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.241637665E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.432665066E-01  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.773606467E-02  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.138230230E-02  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.246961401E-03  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.441209416E-04  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.788240351E-05  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.140822393E-05  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.251584932E-06  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.547296539E-08  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.234391201E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.392807379E-01  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.652394154E-02  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.108145726E-02  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.179211349E-03  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.296959885E-04  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.492069049E-05  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.815367883E-06  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.135108463E-06  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.268387498E-08  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       -1.0490901356446773     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002   0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.183020159E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.237216207E-01  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.304064448E-02  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.389092196E-03  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.497786828E-04  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.636827687E-05  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.814702473E-06  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.104225979E-06  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.133343942E-07  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.195269663E-09  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.176340856E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.220487046E-01  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.272978680E-02  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.337480654E-03  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.417148003E-04  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.515610427E-05  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.637311701E-06  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.787742120E-07  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.973699119E-08  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.137490208E-09  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.175339504E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.210856166E-01  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.249901388E-02  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.295597965E-03  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.349568445E-04  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.413381442E-05  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.488841369E-06  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.578075390E-07  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.683605507E-08  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.913068314E-10  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       -1.2915642908160549     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.137477866E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.131910729E-01  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.125190058E-02  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.118673536E-03  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.112483675E-04  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.106615541E-05  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.101053023E-06  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.957843961E-08  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.907881696E-09  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.954232203E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.138249677E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.132470827E-01  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.125504499E-02  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.118762683E-03  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.112370205E-04  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.106320627E-05  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.100597126E-06  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.951773183E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.900583303E-09  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.997182614E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.125830220E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.110320236E-01  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.956499190E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.828416057E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.717417075E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.621285686E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.538038843E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.465954932E-08  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.403316947E-09  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.373128171E-11  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       -1.4190905915349745     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.958875977E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.669025725E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.463574946E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.321045131E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.222328965E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.153966183E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.106623465E-07  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.738602272E-09  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.512012027E-10  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.268035217E-12  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.118892393E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.100564954E-01  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.843782288E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.707430488E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.593074437E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.497200878E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.416825429E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.349490669E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.292654362E-09  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.306742137E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.108898670E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.826048920E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.620154095E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.465184141E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.348917204E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.261708168E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.196298769E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.147224085E-08  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.110377982E-09  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.670274926E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       -1.5031074263862534     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.103615938E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.801672654E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.622593722E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.483658003E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.375735149E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.291895571E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.226767503E-07  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.176271972E-08  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.134211266E-09  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.118073998E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.109430086E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.894373711E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.733831614E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.602297716E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.494353020E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.405757293E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.333028360E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.273418786E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.223885933E-09  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.442514037E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.952789721E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.676436152E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.481853194E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.343325274E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.244626770E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.174303031E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.124187379E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.884333657E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.642278076E-10  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.644403169E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000      -0.26801170405270369     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.100090268E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.750750260E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.565372957E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.425896826E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.320836367E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.241692504E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.182080708E-07  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.137098745E-08  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.104127622E-09  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.140501143E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.911837959E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.619848004E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.422728079E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.288358213E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.196702661E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.134179085E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.915499284E-08  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.624085539E-09  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.407657420E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.294216019E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.104390549E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.821021551E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.648774678E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.512854458E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.405422332E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.320489339E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.253384351E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.200011239E-08  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.160982767E-09  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.666040381E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000      -0.22333126307418905     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.103346019E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.803335460E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.627285341E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.489988695E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.382753371E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.298987009E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.233525261E-07  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.182557788E-08  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.143965183E-09  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.159403845E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.963485026E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.694913933E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.503154771E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.364412824E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.263933219E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.191158510E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.138440196E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.100446161E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.714419500E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.793625975E-12  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.100416967E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.755532179E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.570780983E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.431339406E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.325971047E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.246339018E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.186204915E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.140690476E-08  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.103875381E-09  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.203927217E-11  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000      -0.13957135200345228     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.892873465E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.597832089E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.401806772E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.270125663E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.181602150E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.122084648E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.822071784E-08  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.539258056E-09  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.491124853E-10  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.440468329E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.102864886E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.797421224E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.621096035E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.483937042E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.377078508E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.293804374E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.229004149E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.177917325E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.139723354E-09  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.341350894E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.871107258E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.564409434E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.366827808E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.238460970E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.155016978E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.100769077E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.655229799E-08  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.427895771E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.257790697E-10  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.230455493E-11  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       -4.2327371569582439E-002
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.876863849E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.579959929E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.385177237E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.255883472E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.169993548E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.112935583E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.750024768E-08  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.494968730E-09  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.380565800E-10  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.401396210E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.975890844E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.720471331E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.534469216E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.396628467E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.294338888E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.218448683E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.161919793E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.125133872E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.738502924E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.274226433E-10  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.900757948E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.610456739E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.415403184E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.282751447E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.192458616E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.131026378E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.897653429E-08  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.582422146E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.000000000E+00  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.163867883E-10  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        5.3864869487610711E-002
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.772894163E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.447194595E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.259573914E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.150697506E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.874891414E-06  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.507934467E-07  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.295414638E-08  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.166944295E-09  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.144830548E-10  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.463373815E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.941193382E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.675890053E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.487923600E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.352364058E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.254474400E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.183777981E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.132724705E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.957209507E-09  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.667663085E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.277840214E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.802586191E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.487506567E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.297301570E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.181350623E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.110623277E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.674795721E-07  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.411779787E-08  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.253794918E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.143536371E-10  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.297337318E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        8.2304059002036745E-002
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.756835510E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.433859935E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.249636631E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.143667816E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.826829796E-06  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.475827967E-07  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.273912323E-08  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.158443457E-09  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.804833751E-11  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.216729825E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.846447687E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.551614256E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.361337666E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.236775734E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.155156826E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.101673499E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.666214245E-08  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.437181847E-09  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.267076950E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.117267503E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.765527242E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.443382674E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.257746609E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.149864828E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.871386232E-06  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.506687492E-07  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.294621655E-08  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.169940257E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.104552445E-10  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.336159435E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       0.22052163107964340     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.776468061E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.465879650E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.280858048E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.169364943E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.102133374E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.615898292E-07  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.371381142E-08  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.225230432E-09  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.133366567E-10  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.917549488E-12  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.882738497E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.613259026E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.428899795E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.300102123E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.209989031E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.146934780E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.102808030E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.719754093E-09  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.501747588E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.264109451E-13  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.752434586E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.433915556E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.251258615E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.145525460E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.842873747E-06  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.488188056E-07  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.282748890E-08  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.163767771E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.964096251E-11  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.767317743E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       0.37192500293457709     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.753150331E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.443260515E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.262138769E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.155069323E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.917335517E-06  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.542656553E-07  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.320986911E-08  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.190762882E-09  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.110241914E-10  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.750589299E-12  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.765239456E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.465179173E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.284426284E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.173969002E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.106410143E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.650872644E-07  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.398147346E-08  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.243197698E-09  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.148659084E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.112861366E-12  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.758759203E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.463163560E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.284561049E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.174898950E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.107500260E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.660750220E-07  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.406104130E-08  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.249379859E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.148557308E-10  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.461804796E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       0.55202945281391980     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.742826510E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.455087472E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.280698706E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.173206251E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.106880321E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.659523993E-07  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.406977111E-08  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.251338069E-09  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.153886367E-10  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.543588806E-15  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.710098326E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.419686305E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.249716132E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.148640885E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.884789714E-06  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.526673081E-07  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.313502412E-08  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.186823486E-09  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.112658198E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.198700692E-12  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.722176755E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.432256212E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.260475402E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.157023655E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.946615608E-06  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.570670995E-07  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.344020524E-08  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.207336925E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.125665596E-10  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.135348491E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000       0.86651478545689020     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.763707464E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.522041294E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.360519864E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.249144944E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.172185080E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.118998157E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.822430602E-08  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.568504424E-09  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.392088170E-10  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.692010161E-12  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.808187396E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.574884205E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.412563261E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.296254637E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.212744664E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.152775079E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.109710771E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.788262924E-09  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.565533697E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.538774015E-12  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.803265148E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.564696094E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.400641224E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.284426258E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.201931055E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.143363113E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.101782783E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.722723551E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.511595080E-10  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.859885975E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        1.2333666602790290     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.774668596E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.577941635E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.436587257E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.330104207E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.249609222E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.188743669E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.142719357E-07  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.107926017E-08  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.818214236E-10  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.399998552E-12  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.772394455E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.572291791E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.429214145E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.322188627E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.241865946E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.181569183E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.136303713E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.102326705E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.769356788E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.745946273E-12  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.765248017E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.549206538E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.398388825E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.289201485E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.209950632E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.152417809E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.110651045E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.803077151E-09  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.583630542E-10  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.719582834E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        1.5975748618792913     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        2.3088936069139976E-002   0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.774975715E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.604466360E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.477370583E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.377346858E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.298302866E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.235817844E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.186421537E-07  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.147366781E-08  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.116296899E-09  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.991443907E-12  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.724824915E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.543049679E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.411743517E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.312451967E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.237119703E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.179950749E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.136567499E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.103615200E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.788634341E-10  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.726507901E-12  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.745022587E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.554969142E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.418174073E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.315354986E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.237831248E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.179365939E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.135272563E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.102018792E-08  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.770316671E-10  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.741893945E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        2.0213609663148935     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        2.3088936069139976E-002   2.0444499023840335        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.747914866E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.630295266E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.538318562E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.460244483E-04  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.393528660E-05  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.336486310E-06  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.287710827E-07  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.246026805E-08  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.210321647E-09  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.191376633E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.716540471E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.612419722E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.531990432E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.462731462E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.402534905E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.350172962E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.304619979E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.265024643E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.230292859E-09  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.203607422E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.783220257E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.705340904E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.645765841E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.592052677E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.542876588E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.497790910E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.456448568E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.418565172E-08  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.383651433E-09  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.388800012E-11  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        2.6145149282301583     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        2.3088936069139976E-002   2.0444499023840335        4.6589648306141918        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.853537436E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.922436474E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.101377502E-02  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.111594480E-03  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.122862466E-04  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.135270771E-05  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.148932523E-06  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.163974131E-07  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.180541900E-08  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.224035879E-10  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.758798164E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.752808829E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.760589117E-03  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.769727190E-04  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.779104622E-05  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.788609513E-06  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.798234188E-07  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.807966568E-08  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.817655935E-09  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.929679931E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.753231603E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.736644461E-02  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.732408403E-03  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.729266510E-04  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.726243044E-05  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.723242430E-06  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.720254761E-07  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.717298437E-08  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.714110235E-09  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.792779046E-11  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        3.3841006646161151     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        2.3088936069139976E-002   2.0444499023840335        4.6589648306141918        8.0430654952303069        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.580946643E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.737643191E-02  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.952532544E-03  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.123210542E-03  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.159407042E-04  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.206242862E-05  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.266840495E-06  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.345243449E-07  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.446681637E-08  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.663296005E-10  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.698186883E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.916185602E-02  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.121041075E-02  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.159946355E-03  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.211360067E-04  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.279300932E-05  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.369081101E-06  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.487720594E-07  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.644501700E-08  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.981132954E-10  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.732280576E-01  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.105113516E-01  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.153674542E-02  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.225104250E-03  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.329823350E-04  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.483276780E-05  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.708130012E-06  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.103760090E-06  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.152035440E-07  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.261111998E-09  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        6.5685887049002121     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        2.3088936069139976E-002   2.0444499023840335        4.6589648306141918        8.0430654952303069        14.611654200130520        0.0000000000000000        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.803806898E-01  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.108258115E-01  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.146574219E-02  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.198458884E-03  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.268707744E-04  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.363822262E-05  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.492604344E-06  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.666970209E-07  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.903074339E-08  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.141442650E-09  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.825491573E-01  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.119858816E-01  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.176208676E-02  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.259291340E-03  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.381592319E-04  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.561588934E-05  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.826491819E-06  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.121635063E-06  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.179008378E-07  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.308969515E-09  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.102471556E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.155596963E-01  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.236984408E-02  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.360633918E-03  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.548710215E-04  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.834850093E-05  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.127020057E-05  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.193257117E-06  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.294036423E-07  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.527727211E-09  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        6.0732755991874887     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        2.3088936069139976E-002   2.0444499023840335        4.6589648306141918        8.0430654952303069        14.611654200130520        20.684929799318009        0.0000000000000000        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.137332967E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.269044579E-01  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.530662624E-02  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.104560048E-02  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.205960196E-03  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.405670682E-04  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.799021624E-05  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.157377406E-05  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.309974404E-06  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.760279153E-08  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.111453323E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.192611790E-01  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.338873252E-02  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.597291660E-03  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.105307220E-03  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.185673921E-04  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.327376374E-05  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.577224163E-06  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.101774930E-06  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.217851885E-08  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.143870795E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.285561245E-01  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.580402535E-02  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.118267598E-02  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.241093561E-03  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.491519851E-04  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.100208303E-04  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.204299718E-05  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.416516654E-06  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.106663334E-07  tolerance =   0.100000000E-07
+[block     3]    12th iteration  delta =   0.959979420E-07  tolerance =   0.100000000E-07
+[block     3]    13th iteration  delta =   0.177976159E-11  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        5.2757914481420052     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        2.3088936069139976E-002   2.0444499023840335        4.6589648306141918        8.0430654952303069        14.611654200130520        20.684929799318009        25.960721247460015        0.0000000000000000        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.192403224E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.417375655E-01  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.927529000E-02  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.206645145E-02  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.460578004E-03  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.102663986E-03  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.228844842E-04  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.510112463E-05  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.113708031E-05  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.326170179E-07  tolerance =   0.100000000E-07
+[block     1]    12th iteration  delta =   0.293553307E-06  tolerance =   0.100000000E-07
+[block     1]    13th iteration  delta =   0.227759267E-11  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.184843609E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.406706167E-01  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.918004254E-02  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.207807441E-02  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.470646715E-03  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.106604324E-03  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.241470908E-04  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.546961948E-05  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.123893904E-05  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.362817647E-07  tolerance =   0.100000000E-07
+[block     2]    12th iteration  delta =   0.326537052E-06  tolerance =   0.100000000E-07
+[block     2]    13th iteration  delta =   0.200076147E-11  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.181288559E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.403606911E-01  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.922231942E-02  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.211375776E-02  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.484740407E-03  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.111176882E-03  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.254994800E-04  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.584858476E-05  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.134143913E-05  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.399246109E-07  tolerance =   0.100000000E-07
+[block     3]    12th iteration  delta =   0.359321768E-06  tolerance =   0.100000000E-07
+[block     3]    13th iteration  delta =   0.213930317E-11  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        4.2591721467415944     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        2.3088936069139976E-002   2.0444499023840335        4.6589648306141918        8.0430654952303069        14.611654200130520        20.684929799318009        25.960721247460015        30.219893394201609        0.0000000000000000     
+Solve_Mbar> 
+
+[block     1]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     1]     2th iteration  delta =   0.286022885E+00  tolerance =   0.100000000E-07
+[block     1]     3th iteration  delta =   0.808828772E-01  tolerance =   0.100000000E-07
+[block     1]     4th iteration  delta =   0.240469949E-01  tolerance =   0.100000000E-07
+[block     1]     5th iteration  delta =   0.723122547E-02  tolerance =   0.100000000E-07
+[block     1]     6th iteration  delta =   0.218127597E-02  tolerance =   0.100000000E-07
+[block     1]     7th iteration  delta =   0.658571563E-03  tolerance =   0.100000000E-07
+[block     1]     8th iteration  delta =   0.198890029E-03  tolerance =   0.100000000E-07
+[block     1]     9th iteration  delta =   0.600701158E-04  tolerance =   0.100000000E-07
+[block     1]    10th iteration  delta =   0.181432317E-04  tolerance =   0.100000000E-07
+[block     1]    11th iteration  delta =   0.785132934E-06  tolerance =   0.100000000E-07
+[block     1]    12th iteration  delta =   0.706616388E-05  tolerance =   0.100000000E-07
+[block     1]    13th iteration  delta =   0.616448924E-12  tolerance =   0.100000000E-07
+[block     2]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     2]     2th iteration  delta =   0.304311349E+00  tolerance =   0.100000000E-07
+[block     2]     3th iteration  delta =   0.851954868E-01  tolerance =   0.100000000E-07
+[block     2]     4th iteration  delta =   0.247846977E-01  tolerance =   0.100000000E-07
+[block     2]     5th iteration  delta =   0.726714152E-02  tolerance =   0.100000000E-07
+[block     2]     6th iteration  delta =   0.213506587E-02  tolerance =   0.100000000E-07
+[block     2]     7th iteration  delta =   0.627627628E-03  tolerance =   0.100000000E-07
+[block     2]     8th iteration  delta =   0.184528420E-03  tolerance =   0.100000000E-07
+[block     2]     9th iteration  delta =   0.542556649E-04  tolerance =   0.100000000E-07
+[block     2]    10th iteration  delta =   0.159526558E-04  tolerance =   0.100000000E-07
+[block     2]    11th iteration  delta =   0.664411434E-06  tolerance =   0.100000000E-07
+[block     2]    12th iteration  delta =   0.597967737E-05  tolerance =   0.100000000E-07
+[block     2]    13th iteration  delta =   0.893258949E-12  tolerance =   0.100000000E-07
+[block     3]     1th iteration  delta =   0.141421356E+01  tolerance =   0.100000000E-07
+[block     3]     2th iteration  delta =   0.300192284E+00  tolerance =   0.100000000E-07
+[block     3]     3th iteration  delta =   0.879024249E-01  tolerance =   0.100000000E-07
+[block     3]     4th iteration  delta =   0.271581524E-01  tolerance =   0.100000000E-07
+[block     3]     5th iteration  delta =   0.850458677E-02  tolerance =   0.100000000E-07
+[block     3]     6th iteration  delta =   0.267364600E-02  tolerance =   0.100000000E-07
+[block     3]     7th iteration  delta =   0.841539933E-03  tolerance =   0.100000000E-07
+[block     3]     8th iteration  delta =   0.264976839E-03  tolerance =   0.100000000E-07
+[block     3]     9th iteration  delta =   0.834434186E-04  tolerance =   0.100000000E-07
+[block     3]    10th iteration  delta =   0.262779997E-04  tolerance =   0.100000000E-07
+[block     3]    11th iteration  delta =   0.120798622E-05  tolerance =   0.100000000E-07
+[block     3]    12th iteration  delta =   0.108717875E-04  tolerance =   0.100000000E-07
+[block     3]    13th iteration  delta =   0.523208149E-12  tolerance =   0.100000000E-07
+
+ f_k_tmp =    0.0000000000000000        2.9188565121943180     
+ f_k =    0.0000000000000000       0.98108174821802940       -6.8008387426647943E-002  -1.3595726782427029       -2.7786632697776774       -4.2817706961639308       -4.5497824002166345       -4.7731136632908235       -4.9126850152942758       -4.9550123868638583       -4.9011475173762475       -4.8188434583742108       -4.5983218272945674       -4.2263968243599903       -3.6743673715460705       -2.8078525860891803       -1.5744859258101513        2.3088936069139976E-002   2.0444499023840335        4.6589648306141918        8.0430654952303069        14.611654200130520        20.684929799318009        25.960721247460015        30.219893394201609        33.138749906395930     
+ Open_file> File mbar_analysis.out already exists  rank_no =     0
