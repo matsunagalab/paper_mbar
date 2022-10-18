@@ -1,0 +1,64 @@
+****************************************************
+*                                                  *
+*                   PMF_ANALYSIS                   *
+*                                                  *
+*        Utility to analyze trajectory files       *
+*                                                  *
+*              Developed by RIKEN AICS             *
+*                                                  *
+****************************************************
+ 
+[STEP1] Read Control Parameters for Analysis
+ 
+Read_Ctrl_Input> Input Files
+  cvfile          = ../distance/param{}.dis
+  weightfile      = ../mbar/weight{}.dat
+ 
+Read_Ctrl_Output> Output Files
+  pmffile         = dist.pmf
+ 
+Read_Ctrl_Option> Parameters of OPTION
+
+  check only      = no
+  allow backup    = no
+     dimension    =          1
+     nreplica     =          4
+     temperature  =     300.00
+     cutoff       =       0.00
+   dimension :               1
+     grids        = 0 15 31
+     band_width   =       0.10
+     is_periodic  = no
+
+
+[STEP2] Set Relevant Variables and Structures
+ 
+Setup_Option> centers of grids in dimension   1
+    0.2500    0.7500    1.2500    1.7500    2.2500    2.7500    3.2500    3.7500    4.2500    4.7500    5.2500    5.7500    6.2500    6.7500    7.2500    7.7500    8.2500    8.7500    9.2500    9.7500   10.2500   10.7500   11.2500   11.7500   12.2500   12.7500   13.2500   13.7500   14.2500   14.7500
+
+
+[STEP3] Analysis trajectory files
+ 
+Check_File_Lines>
+    file name   : ../mbar/weight1.dat
+    # of line   : 400
+
+Check_File_Lines>
+    file name   : ../distance/param1.dis
+    # of line   : 400
+
+Check_File_Column>
+    file name   : ../distance/param1.dis
+    # of column : 2
+
+    Summation P(r) in each = 0.997
+
+Analyze> Detailed information in the output files
+
+  [pmffile] dist.pmf
+    Column 1: coordinates of grid centers
+    Column 2: Free energy profile at the corresponding bin by standard method
+    Column 3: Free energy profile at the corresponding bin by Gaussian Distribution
+
+[STEP4] Deallocate memory
+ 

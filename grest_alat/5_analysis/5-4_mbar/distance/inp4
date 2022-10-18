@@ -1,0 +1,20 @@
+[INPUT]
+psffile        = ../../../1_setup/build/ala3.psf
+reffile        = ../../../1_setup/build/ala3.pdb
+ 
+[OUTPUT]
+disfile        = param4.dis
+ 
+[TRAJECTORY]
+trjfile1       = ../../5-3_sort_dcd/run_param4.dcd
+md_step1       = 10000000          # number of MD steps
+mdout_period1  = 500             # MD output period
+ana_period1    = 500             # analysis period
+repeat1        = 1
+trj_format     = DCD             # (PDB/DCD)
+trj_type       = COOR+BOX        # (COOR/COOR+BOX)
+trj_natom      = 0               # (0:uses reference PDB atom count)
+ 
+[OPTION]
+check_only     = NO              # (YES/NO)
+distance1      = PROA:1:ALA:OY PROA:3:ALA:HNT

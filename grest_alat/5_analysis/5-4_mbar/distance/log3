@@ -1,0 +1,476 @@
+****************************************************
+*                                                  *
+*                   TRJ_ANALYSIS                   *
+*                                                  *
+*        Utility to analyze trajectory files       *
+*                                                  *
+*              Developed by RIKEN AICS             *
+*                                                  *
+****************************************************
+ 
+[STEP1] Read Control Parameters for Analysis
+ 
+Read_Ctrl_Input> Input Files
+  psffile         = ../../../1_setup/build/ala3.psf
+  reffile         = ../../../1_setup/build/ala3.pdb
+ 
+Read_Ctrl_Output> Output Files
+  disfile         = param3.dis
+ 
+Read_Ctrl_Trajectory> Parameters of Trajectory
+  # of trj files  =          1
+    trajectory file 1 = ../../5-3_sort_dcd/remd_1_param3.dcd
+         md steps :      40000
+     mdout period :        100
+       ana period :        100
+  trj format      = DCD       
+  trj type        =   COOR+BOX
+ 
+Read_Ctrl_Selection> Parameters of Selection
+  # of groups     =          0
+  # of mole names =          0
+ 
+Read_Ctrl_Option> Parameters of Options
+  check only      = no
+  allow backup    = no
+   # of distance  =          1
+     distance 1 = PROA:1:ALA:OY PROA:3:ALA:HNT
+ 
+[STEP2] Set Relevant Variables and Structures
+ 
+Read_Psf> Summary of Psffile
+  psftype         =      xplor
+  num_atoms       =         42  num_bonds       =         41
+  num_angles      =         72  num_dihedrals   =         91
+  num_impropers   =          8  num_cmap_terms  =          3
+  num_HB_donors   =          4  num_HB_acceptors=          4
+  num_NB_exclusion=          0  num_groups      =         12
+  total_charge    =     -0.000
+ 
+Read_Pdb> Summary of Data in PDB file
+  num_atoms       =         42
+ 
+Define_Molecule> Summary of molecules
+  num_atoms       =         42  num_bonds       =         41
+  num_angles      =         72  num_dihedrals   =         91
+  num_impropers   =          8  num_cmap_terms  =          3
+  num_residues    =          3  num_molecules   =          1
+  num_segments    =          1  num_deg_freedom =        126
+  total_charge    =     -0.000
+ 
+Setup_Option> distance atom indices: 
+    1 )       6     38
+ 
+[STEP3] Analysis trajectory files
+ 
+       number of structures =            1
+       number of structures =            2
+       number of structures =            3
+       number of structures =            4
+       number of structures =            5
+       number of structures =            6
+       number of structures =            7
+       number of structures =            8
+       number of structures =            9
+       number of structures =           10
+       number of structures =           11
+       number of structures =           12
+       number of structures =           13
+       number of structures =           14
+       number of structures =           15
+       number of structures =           16
+       number of structures =           17
+       number of structures =           18
+       number of structures =           19
+       number of structures =           20
+       number of structures =           21
+       number of structures =           22
+       number of structures =           23
+       number of structures =           24
+       number of structures =           25
+       number of structures =           26
+       number of structures =           27
+       number of structures =           28
+       number of structures =           29
+       number of structures =           30
+       number of structures =           31
+       number of structures =           32
+       number of structures =           33
+       number of structures =           34
+       number of structures =           35
+       number of structures =           36
+       number of structures =           37
+       number of structures =           38
+       number of structures =           39
+       number of structures =           40
+       number of structures =           41
+       number of structures =           42
+       number of structures =           43
+       number of structures =           44
+       number of structures =           45
+       number of structures =           46
+       number of structures =           47
+       number of structures =           48
+       number of structures =           49
+       number of structures =           50
+       number of structures =           51
+       number of structures =           52
+       number of structures =           53
+       number of structures =           54
+       number of structures =           55
+       number of structures =           56
+       number of structures =           57
+       number of structures =           58
+       number of structures =           59
+       number of structures =           60
+       number of structures =           61
+       number of structures =           62
+       number of structures =           63
+       number of structures =           64
+       number of structures =           65
+       number of structures =           66
+       number of structures =           67
+       number of structures =           68
+       number of structures =           69
+       number of structures =           70
+       number of structures =           71
+       number of structures =           72
+       number of structures =           73
+       number of structures =           74
+       number of structures =           75
+       number of structures =           76
+       number of structures =           77
+       number of structures =           78
+       number of structures =           79
+       number of structures =           80
+       number of structures =           81
+       number of structures =           82
+       number of structures =           83
+       number of structures =           84
+       number of structures =           85
+       number of structures =           86
+       number of structures =           87
+       number of structures =           88
+       number of structures =           89
+       number of structures =           90
+       number of structures =           91
+       number of structures =           92
+       number of structures =           93
+       number of structures =           94
+       number of structures =           95
+       number of structures =           96
+       number of structures =           97
+       number of structures =           98
+       number of structures =           99
+       number of structures =          100
+       number of structures =          101
+       number of structures =          102
+       number of structures =          103
+       number of structures =          104
+       number of structures =          105
+       number of structures =          106
+       number of structures =          107
+       number of structures =          108
+       number of structures =          109
+       number of structures =          110
+       number of structures =          111
+       number of structures =          112
+       number of structures =          113
+       number of structures =          114
+       number of structures =          115
+       number of structures =          116
+       number of structures =          117
+       number of structures =          118
+       number of structures =          119
+       number of structures =          120
+       number of structures =          121
+       number of structures =          122
+       number of structures =          123
+       number of structures =          124
+       number of structures =          125
+       number of structures =          126
+       number of structures =          127
+       number of structures =          128
+       number of structures =          129
+       number of structures =          130
+       number of structures =          131
+       number of structures =          132
+       number of structures =          133
+       number of structures =          134
+       number of structures =          135
+       number of structures =          136
+       number of structures =          137
+       number of structures =          138
+       number of structures =          139
+       number of structures =          140
+       number of structures =          141
+       number of structures =          142
+       number of structures =          143
+       number of structures =          144
+       number of structures =          145
+       number of structures =          146
+       number of structures =          147
+       number of structures =          148
+       number of structures =          149
+       number of structures =          150
+       number of structures =          151
+       number of structures =          152
+       number of structures =          153
+       number of structures =          154
+       number of structures =          155
+       number of structures =          156
+       number of structures =          157
+       number of structures =          158
+       number of structures =          159
+       number of structures =          160
+       number of structures =          161
+       number of structures =          162
+       number of structures =          163
+       number of structures =          164
+       number of structures =          165
+       number of structures =          166
+       number of structures =          167
+       number of structures =          168
+       number of structures =          169
+       number of structures =          170
+       number of structures =          171
+       number of structures =          172
+       number of structures =          173
+       number of structures =          174
+       number of structures =          175
+       number of structures =          176
+       number of structures =          177
+       number of structures =          178
+       number of structures =          179
+       number of structures =          180
+       number of structures =          181
+       number of structures =          182
+       number of structures =          183
+       number of structures =          184
+       number of structures =          185
+       number of structures =          186
+       number of structures =          187
+       number of structures =          188
+       number of structures =          189
+       number of structures =          190
+       number of structures =          191
+       number of structures =          192
+       number of structures =          193
+       number of structures =          194
+       number of structures =          195
+       number of structures =          196
+       number of structures =          197
+       number of structures =          198
+       number of structures =          199
+       number of structures =          200
+       number of structures =          201
+       number of structures =          202
+       number of structures =          203
+       number of structures =          204
+       number of structures =          205
+       number of structures =          206
+       number of structures =          207
+       number of structures =          208
+       number of structures =          209
+       number of structures =          210
+       number of structures =          211
+       number of structures =          212
+       number of structures =          213
+       number of structures =          214
+       number of structures =          215
+       number of structures =          216
+       number of structures =          217
+       number of structures =          218
+       number of structures =          219
+       number of structures =          220
+       number of structures =          221
+       number of structures =          222
+       number of structures =          223
+       number of structures =          224
+       number of structures =          225
+       number of structures =          226
+       number of structures =          227
+       number of structures =          228
+       number of structures =          229
+       number of structures =          230
+       number of structures =          231
+       number of structures =          232
+       number of structures =          233
+       number of structures =          234
+       number of structures =          235
+       number of structures =          236
+       number of structures =          237
+       number of structures =          238
+       number of structures =          239
+       number of structures =          240
+       number of structures =          241
+       number of structures =          242
+       number of structures =          243
+       number of structures =          244
+       number of structures =          245
+       number of structures =          246
+       number of structures =          247
+       number of structures =          248
+       number of structures =          249
+       number of structures =          250
+       number of structures =          251
+       number of structures =          252
+       number of structures =          253
+       number of structures =          254
+       number of structures =          255
+       number of structures =          256
+       number of structures =          257
+       number of structures =          258
+       number of structures =          259
+       number of structures =          260
+       number of structures =          261
+       number of structures =          262
+       number of structures =          263
+       number of structures =          264
+       number of structures =          265
+       number of structures =          266
+       number of structures =          267
+       number of structures =          268
+       number of structures =          269
+       number of structures =          270
+       number of structures =          271
+       number of structures =          272
+       number of structures =          273
+       number of structures =          274
+       number of structures =          275
+       number of structures =          276
+       number of structures =          277
+       number of structures =          278
+       number of structures =          279
+       number of structures =          280
+       number of structures =          281
+       number of structures =          282
+       number of structures =          283
+       number of structures =          284
+       number of structures =          285
+       number of structures =          286
+       number of structures =          287
+       number of structures =          288
+       number of structures =          289
+       number of structures =          290
+       number of structures =          291
+       number of structures =          292
+       number of structures =          293
+       number of structures =          294
+       number of structures =          295
+       number of structures =          296
+       number of structures =          297
+       number of structures =          298
+       number of structures =          299
+       number of structures =          300
+       number of structures =          301
+       number of structures =          302
+       number of structures =          303
+       number of structures =          304
+       number of structures =          305
+       number of structures =          306
+       number of structures =          307
+       number of structures =          308
+       number of structures =          309
+       number of structures =          310
+       number of structures =          311
+       number of structures =          312
+       number of structures =          313
+       number of structures =          314
+       number of structures =          315
+       number of structures =          316
+       number of structures =          317
+       number of structures =          318
+       number of structures =          319
+       number of structures =          320
+       number of structures =          321
+       number of structures =          322
+       number of structures =          323
+       number of structures =          324
+       number of structures =          325
+       number of structures =          326
+       number of structures =          327
+       number of structures =          328
+       number of structures =          329
+       number of structures =          330
+       number of structures =          331
+       number of structures =          332
+       number of structures =          333
+       number of structures =          334
+       number of structures =          335
+       number of structures =          336
+       number of structures =          337
+       number of structures =          338
+       number of structures =          339
+       number of structures =          340
+       number of structures =          341
+       number of structures =          342
+       number of structures =          343
+       number of structures =          344
+       number of structures =          345
+       number of structures =          346
+       number of structures =          347
+       number of structures =          348
+       number of structures =          349
+       number of structures =          350
+       number of structures =          351
+       number of structures =          352
+       number of structures =          353
+       number of structures =          354
+       number of structures =          355
+       number of structures =          356
+       number of structures =          357
+       number of structures =          358
+       number of structures =          359
+       number of structures =          360
+       number of structures =          361
+       number of structures =          362
+       number of structures =          363
+       number of structures =          364
+       number of structures =          365
+       number of structures =          366
+       number of structures =          367
+       number of structures =          368
+       number of structures =          369
+       number of structures =          370
+       number of structures =          371
+       number of structures =          372
+       number of structures =          373
+       number of structures =          374
+       number of structures =          375
+       number of structures =          376
+       number of structures =          377
+       number of structures =          378
+       number of structures =          379
+       number of structures =          380
+       number of structures =          381
+       number of structures =          382
+       number of structures =          383
+       number of structures =          384
+       number of structures =          385
+       number of structures =          386
+       number of structures =          387
+       number of structures =          388
+       number of structures =          389
+       number of structures =          390
+       number of structures =          391
+       number of structures =          392
+       number of structures =          393
+       number of structures =          394
+       number of structures =          395
+       number of structures =          396
+       number of structures =          397
+       number of structures =          398
+       number of structures =          399
+       number of structures =          400
+
+Analyze> Detailed information in the output files
+
+  [disfile] param3.dis
+    Column 1: Snapshot index
+    Column 2: Distance (angstrom)
+    If multiple groups were specified in [OPTION],
+    Column N+1: Distance for the N-th selected group
+
+[STEP4] Deallocate memory
+ 

@@ -1,0 +1,15 @@
+[INPUT]
+remfile        =  ../../../4_production/run_rep{}.rem   # remfile of gREST
+enefile        =  ../../../4_production/run_rep{}.ene   # enefile of gREST
+ 
+[OUTPUT]
+enefile        = eneout_param{}  # sorted enefile
+ 
+[OPTION]
+check_only      = NO
+convert_type    = PARAMETER
+convert_ids     = 
+num_replicas    = 4
+nsteps          = 10000000            # number of steps of gREST
+exchange_period = 1000               # exchange frequency of gREST
+crdout_period   = 500                # output frequency of enefile of gREST

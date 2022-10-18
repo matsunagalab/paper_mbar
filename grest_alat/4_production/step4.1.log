@@ -1,0 +1,767 @@
+****************************************************
+*                                                  *
+*                  GENESIS SPDYN                   *
+*                                                  *
+*        A Molecular Dynamics Simulator with       *
+*           Spatial Decomposition Scheme           *
+*                                                  *
+*               Developed by RIKEN                 *
+*                                                  *
+****************************************************
+ 
+[STEP0] Architecture and Compiler Information
+ 
+GENESIS_Information> GENESIS Information
+  version      = 1.5.1
+  commit ID    = 1.5.1 [2020-08-27 14:10:28 +0900]
+  precision    = double
+  nonbonding   = CPU
+
+Build_Information> Compiler Information
+  build host   = yasu@crab.aics27.riken.jp
+  fortran      = GNU Fortran (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44)
+  option       = -O3 -ffast-math -march=native -ffree-line-length-none -fopenmp 
+  C            = gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-44)
+  option       = -O3 -ffast-math -march=native -fopenmp
+  defined var. =  -DMPI -DOMP -DFFTE -DLAPACK -DDSFMT_MEXP=19937 -D__GFORTRAN__
+  link option  =  -fopenmp  -llapack -lblas 
+
+Runtime_Information> Machine and Library Information
+  date       = 2021/09/09 23:49:07
+  cpu model    = Intel(R) Xeon(R) CPU E5-2697A v4 @ 2.60GHz
+  exec. host   = yasu@crab.aics27.riken.jp
+  LD library   = /opt/netcdf/lib:/opt/mpich/lib:/usr/local/cuda/lib64:/usr/local/MATLAB/R2014a/sys/opengl/lib/glnxa64:/opt/netcdf/lib:/opt/mpich/lib:/usr/local/cuda/lib64:/usr/local/MATLAB/R2014a/sys/opengl/lib/glnxa64:
+
+[STEP1] Read Control Parameters
+ 
+Read_Ctrl_Input> Input Files
+  topfile = ../toppar/top_all36_prot.rtf
+  parfile = ../toppar/par_all36_prot.prm
+  strfile = ../toppar/toppar_water_ions.str
+  psffile = ../1_setup/wbox.psf
+  pdbfile = ../1_setup/wbox.pdb
+  rstfile = ../3_equilibration/step3_rep{}.rst
+ 
+Read_Ctrl_Output> Output Files
+  logfile    = step4_1_rep{}.log
+  dcdfile    = step4_1_rep{}.dcd
+  enefile    = step4_1_rep{}.ene
+  rstfile    = step4_1_rep{}.rst
+  remfile    = step4_1_rep{}.rem
+ 
+Read_Ctrl_Remd> Replica information
+  dimension       =          1  nreplica        =          4
+  variable        = SOLUTE TEMPERATURE
+  select_index    = 1
+  param_type      = ALL
+  cyclic_params   = no
+
+Read_Ctrl_Energy> Parameters of Energy Calculations
+  forcefield      =     CHARMM
+  switchdist      =     10.000  cutoffdist      =     12.000
+  pairlistdist    =     13.500  dielec_const    =      1.000
+ vdW force_switch =        yes
+  electrostatic   =        PME
+  pme_nspline     =          4
+  pme_alpha       =    0.22664  pme_alpha_tol   =  0.100E-04
+  fft_scheme      = 1DALLTOALL
+  table_order     =          1
+  table_density   =     20.000
+  water_model     =       NONE
+  output_style    =    GENESIS
+  dispersion_corr =       none
+  nonb_limiter    =      no
+  contact_check   =      no
+  vacuum          =      no
+ 
+Read_Ctrl_Dynamics> Parameters of MD simulation
+  integrator      =       VRES  nsteps          =      40000
+  timestep        =     0.0025  initial_time    =     0.0000
+  eneout_period   =         10  rstout_period   =       4000
+  crdout_period   =        100  velout_period   =          0
+  nbupdate_period =         10  stoptr_period   =         10
+  iseed           =         -1
+  annealing       =         no
+ elec_long_period  =          2 thermostat_period =         10 barostat_period   =         10
+  xo_respa        =        yes
+  verbose         =         no
+  target_md       =         no
+  steered_md      =         no
+ 
+Read_Ctrl_Constraints> Parameters for Constraints
+  rigid_bond      =        yes
+  shake_iteration =        500  shake_tolerance =  0.100E-09
+  fast_bond       =         no
+  fast_water      =        yes  water_model     =       TIP3
+  hydrogen_type   =       name
+ 
+Read_Ctrl_Ensemble> Parameters for Ensemble
+  ensemble        =        NVT
+  temperature     =    300.000
+  tpcontrol       =      BUSSI
+  tau_t           =      5.000
+ 
+Read_Ctrl_Boundary> Parameters of Boundary Condition
+  type            =       PBC 
+  box_size(x,y,z) =      0.000     0.000     0.000
+ 
+Read_Ctrl_Selection> Parameters of Selection
+  # of groups     =          1
+    group 1 = ai:1-42
+  # of mole names =          0
+ 
+Read_Ctrl_Restraints> No restraint in the system
+
+Read_Ctrl_Fitting_MD> Parameters of Fitting
+  fitting method  =  TR+ROT   
+  fitting atom    = group1
+  mass_weight     =         no
+ 
+[STEP2] Setup MPI
+ 
+Setup_Mpi_Remd> Summary of Setup MPI
+  number of MPI processes                =         32
+  number of MPI processes in one replica =          8
+  number of OpenMP threads               =          1
+  total number of CPU cores              =         32
+     world_rank     country_no   country_rank
+              0              0              0  REAL  RECP  MASTER
+              1              0              1  REAL  RECP        
+              2              0              2  REAL  RECP        
+              3              0              3  REAL  RECP        
+              4              0              4  REAL  RECP        
+              5              0              5  REAL  RECP        
+              6              0              6  REAL  RECP        
+              7              0              7  REAL  RECP        
+              8              1              0  REAL  RECP  MASTER
+              9              1              1  REAL  RECP        
+             10              1              2  REAL  RECP        
+             11              1              3  REAL  RECP        
+             12              1              4  REAL  RECP        
+             13              1              5  REAL  RECP        
+             14              1              6  REAL  RECP        
+             15              1              7  REAL  RECP        
+             16              2              0  REAL  RECP  MASTER
+             17              2              1  REAL  RECP        
+             18              2              2  REAL  RECP        
+             19              2              3  REAL  RECP        
+             20              2              4  REAL  RECP        
+             21              2              5  REAL  RECP        
+             22              2              6  REAL  RECP        
+             23              2              7  REAL  RECP        
+             24              3              0  REAL  RECP  MASTER
+             25              3              1  REAL  RECP        
+             26              3              2  REAL  RECP        
+             27              3              3  REAL  RECP        
+             28              3              4  REAL  RECP        
+             29              3              5  REAL  RECP        
+             30              3              6  REAL  RECP        
+             31              3              7  REAL  RECP        
+
+[STEP3] Set Relevant Variables and Structures
+ 
+Input_Top> Summary of Topfile
+  num_atom_class  =         53  num_resi_type   =         50
+ 
+Input_Par> Summary of Parfile
+  num_bonds       =        132  num_angles      =        364
+  num_dihedrals   =        706  num_impropers   =         35
+  num_atom_cls    =         53  num_nbfix       =          0
+  num_cmap_terms  =          6
+ 
+Input_Str> Summary of Top information
+  num_atom_class  =         68  num_resi_type   =         64
+ 
+Input_Str> Summary of Par information
+  num_bonds       =        135  num_angles      =        365
+  num_dihedrals   =        706  num_impropers   =         35
+  num_atom_cls    =         68  num_nbfix       =         15
+  num_cmap_terms  =          6
+ 
+Read_Psf> Summary of Psffile
+  psftype         =      xplor
+  num_atoms       =      11859  num_bonds       =       7919
+  num_angles      =       4011  num_dihedrals   =         91
+  num_impropers   =          8  num_cmap_terms  =          3
+  num_HB_donors   =          0  num_HB_acceptors=          0
+  num_NB_exclusion=          0  num_groups      =          1
+  total_charge    =      0.000
+ 
+Read_Pdb> Summary of Data in PDB file
+  num_atoms       =      11859
+ 
+Read_Rst_Binary> Summary of RST file
+  num_atoms       =      11859  iseed           =     609529
+  boxsize (x,y,z) =     49.011    49.011    49.011
+  nreplicas                  0  dimension                  0
+  remd_iseed                 0
+
+Define_Molecule> Summary of molecules
+  num_atoms       =      11859  num_bonds       =       7919
+  num_angles      =       4011  num_dihedrals   =         91
+  num_impropers   =          8  num_cmap_terms  =          3
+  num_residues    =       3942  num_molecules   =       3940
+  num_segments    =          2  num_deg_freedom =      35577
+  total_charge    =      0.000
+ 
+Setup_Restart_Pre> Coordinates and velocities were replaced
+
+Setup_Boundary_Cell> Set Variables for Boundary Condition
+  domains (x,y,z) =          2         2         2
+  ncells (x,y,z)  =          6         6         6
+ 
+Setup_Solute_Tempering> preparation of REST
+
+Setup_Enefunc_Cmap> Natural spline is used to derive cmap coefs.
+
+Define_Enefunc_Charmm> Number of Interactions in Each Term
+  bond_ene        =         19  angle_ene       =         72
+  torsion_ene     =         95  improper_ene    =          8
+  cmap_ene        =          3
+  nb_exclusions   =      11930  nb14_calc       =         91
+ 
+Setup_Fitting_Spdyn> NO fitting is applied, skip
+  fitting method  =  NO
+
+
+Setup_PME> Proper PME grid number was generated automatically
+  pme_ngrid(x,y,z)=         60        60        60
+
+Setup_Dynamics> Subtract 3 translational degrees of freedom
+ 
+Update_Num_Deg_Freedom> Number of degrees of freedom was updated
+  num_deg_freedom =      35574 (After removing translation)
+ 
+Random_Init> Initialize the random number
+  seed            = 848713
+
+Setup_Fast_Water> Setup constraints for SETTLE
+  r0(O-H)         =     0.9572  mass(O)         =    15.9994
+  r0(H-H)         =     1.5139  mass(H)         =     1.0080
+ 
+Update_Num_Deg_Freedom> Number of degrees of freedom was updated
+  num_deg_freedom =      23757 (After setup of SETTLE)
+ 
+Setup_Rigid_Bond> Setup constrains for SHAKE and RATTLE
+  num_rigid_bonds =         22
+ 
+Update_Num_Deg_Freedom> Number of degrees of freedom was updated
+  num_deg_freedom =      23735 (After setup of SHAKE/RATTLE)
+ 
+Setup_Remd> Replica information
+
+Setup_Remd_Solute_Tempering>
+Param types for dimension       1
+  BONDS         =        T
+  ANGLES        =        T
+  UREYS         =        T
+  DIHEDRALS     =        T
+  RB_DIHEDRALS  =        T
+  IMPROPERS     =        T
+  CMAPS         =        T
+  CONTACTS      =        T
+  CHARGE        =        T
+  LJ            =        T
+Solute Atoms for dimension       1
+  num_solute              = 42
+  num_solute_bond         = 19
+  num_solute_angles       = 72
+  num_solute_ureys        = 27
+  num_solute_dihedrals    = 95
+  num_solute_rb_dihedrals = 0
+  num_solute_impropers    = 8
+  num_solute_cmaps        = 3
+  num_solute_contacts     = 0
+  ParmsetID
+          1 =           1
+          2 =           2
+          3 =           3
+          4 =           4
+
+  Parameters
+    Dim   1 =     300.000    318.120    337.140    351.260
+
+Setup_Restart_Post> Read random seed  from RST file and Overwrite it
+
+Setup_Restart_Post> Parameters were replaced
+
+[STEP4] Compute Single Point Energy for Molecules
+ 
+            STEP            BOND           ANGLE    UREY-BRADLEY        DIHEDRAL        IMPROPER            CMAP         VDWAALS           ELECT
+ --------------- --------------- --------------- --------------- ---------------
+               0          4.3184         24.9990          0.4529          8.2145          1.8205         -2.9095       4025.7717     -42406.8417
+
+[STEP5] Perform Replica-Exchange MD Simulation
+ 
+Random_Init_Velocity> Initialize the random number
+  seed            = 3141592
+
+REMD> Step:       1000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     0   N           0 /         0     300.000     300.000
+        2          2 >     3   A           1 /         1     318.120     337.140
+        3          3 >     2   A           1 /         1     337.140     318.120
+        4          4 >     0   N           0 /         0     351.260     351.260
+ 
+  Parameter    :    300.000   337.140   318.120   351.260
+  RepIDtoParmID:          1         3         2         4
+  ParmIDtoRepID:          1         3         2         4
+ 
+REMD> Step:       2000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     2   A           1 /         1     300.000     318.120
+        2          3 >     4   A           1 /         1     337.140     351.260
+        3          2 >     1   A           1 /         1     318.120     300.000
+        4          4 >     3   A           1 /         1     351.260     337.140
+ 
+  Parameter    :    318.120   351.260   300.000   337.140
+  RepIDtoParmID:          2         4         1         3
+  ParmIDtoRepID:          3         1         4         2
+ 
+REMD> Step:       3000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     3   R           1 /         2     318.120     318.120
+        2          4 >     0   N           0 /         0     351.260     351.260
+        3          1 >     0   N           0 /         0     300.000     300.000
+        4          3 >     2   R           1 /         2     337.140     337.140
+ 
+  Parameter    :    318.120   351.260   300.000   337.140
+  RepIDtoParmID:          2         4         1         3
+  ParmIDtoRepID:          3         1         4         2
+ 
+REMD> Step:       4000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     1   A           2 /         2     318.120     300.000
+        2          4 >     3   A           2 /         2     351.260     337.140
+        3          1 >     2   A           2 /         2     300.000     318.120
+        4          3 >     4   A           2 /         2     337.140     351.260
+ 
+  Parameter    :    300.000   337.140   318.120   351.260
+  RepIDtoParmID:          1         3         2         4
+  ParmIDtoRepID:          1         3         2         4
+ 
+REMD> Step:       5000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     0   N           0 /         0     300.000     300.000
+        2          3 >     2   A           2 /         3     337.140     318.120
+        3          2 >     3   A           2 /         3     318.120     337.140
+        4          4 >     0   N           0 /         0     351.260     351.260
+ 
+  Parameter    :    300.000   318.120   337.140   351.260
+  RepIDtoParmID:          1         2         3         4
+  ParmIDtoRepID:          1         2         3         4
+ 
+REMD> Step:       6000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     2   A           3 /         3     300.000     318.120
+        2          2 >     1   A           3 /         3     318.120     300.000
+        3          3 >     4   A           3 /         3     337.140     351.260
+        4          4 >     3   A           3 /         3     351.260     337.140
+ 
+  Parameter    :    318.120   300.000   351.260   337.140
+  RepIDtoParmID:          2         1         4         3
+  ParmIDtoRepID:          2         1         4         3
+ 
+REMD> Step:       7000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     3   A           3 /         4     318.120     337.140
+        2          1 >     0   N           0 /         0     300.000     300.000
+        3          4 >     0   N           0 /         0     351.260     351.260
+        4          3 >     2   A           3 /         4     337.140     318.120
+ 
+  Parameter    :    337.140   300.000   351.260   318.120
+  RepIDtoParmID:          3         1         4         2
+  ParmIDtoRepID:          2         4         1         3
+ 
+REMD> Step:       8000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          3 >     4   A           4 /         4     337.140     351.260
+        2          1 >     2   R           3 /         4     300.000     300.000
+        3          4 >     3   A           4 /         4     351.260     337.140
+        4          2 >     1   R           3 /         4     318.120     318.120
+ 
+  Parameter    :    351.260   300.000   337.140   318.120
+  RepIDtoParmID:          4         1         3         2
+  ParmIDtoRepID:          2         4         3         1
+ 
+REMD> Step:       9000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     0   N           0 /         0     351.260     351.260
+        2          1 >     0   N           0 /         0     300.000     300.000
+        3          3 >     2   A           4 /         5     337.140     318.120
+        4          2 >     3   A           4 /         5     318.120     337.140
+ 
+  Parameter    :    351.260   300.000   318.120   337.140
+  RepIDtoParmID:          4         1         2         3
+  ParmIDtoRepID:          2         3         4         1
+ 
+REMD> Step:      10000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     3   A           5 /         5     351.260     337.140
+        2          1 >     2   R           3 /         5     300.000     300.000
+        3          2 >     1   R           3 /         5     318.120     318.120
+        4          3 >     4   A           5 /         5     337.140     351.260
+ 
+  Parameter    :    337.140   300.000   318.120   351.260
+  RepIDtoParmID:          3         1         2         4
+  ParmIDtoRepID:          2         3         1         4
+ 
+REMD> Step:      11000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          3 >     2   A           5 /         6     337.140     318.120
+        2          1 >     0   N           0 /         0     300.000     300.000
+        3          2 >     3   A           5 /         6     318.120     337.140
+        4          4 >     0   N           0 /         0     351.260     351.260
+ 
+  Parameter    :    318.120   300.000   337.140   351.260
+  RepIDtoParmID:          2         1         3         4
+  ParmIDtoRepID:          2         1         3         4
+ 
+REMD> Step:      12000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     1   A           4 /         6     318.120     300.000
+        2          1 >     2   A           4 /         6     300.000     318.120
+        3          3 >     4   R           5 /         6     337.140     337.140
+        4          4 >     3   R           5 /         6     351.260     351.260
+ 
+  Parameter    :    300.000   318.120   337.140   351.260
+  RepIDtoParmID:          1         2         3         4
+  ParmIDtoRepID:          1         2         3         4
+ 
+REMD> Step:      13000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     0   N           0 /         0     300.000     300.000
+        2          2 >     3   A           6 /         7     318.120     337.140
+        3          3 >     2   A           6 /         7     337.140     318.120
+        4          4 >     0   N           0 /         0     351.260     351.260
+ 
+  Parameter    :    300.000   337.140   318.120   351.260
+  RepIDtoParmID:          1         3         2         4
+  ParmIDtoRepID:          1         3         2         4
+ 
+REMD> Step:      14000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     2   A           5 /         7     300.000     318.120
+        2          3 >     4   A           6 /         7     337.140     351.260
+        3          2 >     1   A           5 /         7     318.120     300.000
+        4          4 >     3   A           6 /         7     351.260     337.140
+ 
+  Parameter    :    318.120   351.260   300.000   337.140
+  RepIDtoParmID:          2         4         1         3
+  ParmIDtoRepID:          3         1         4         2
+ 
+REMD> Step:      15000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     3   A           7 /         8     318.120     337.140
+        2          4 >     0   N           0 /         0     351.260     351.260
+        3          1 >     0   N           0 /         0     300.000     300.000
+        4          3 >     2   A           7 /         8     337.140     318.120
+ 
+  Parameter    :    337.140   351.260   300.000   318.120
+  RepIDtoParmID:          3         4         1         2
+  ParmIDtoRepID:          3         4         1         2
+ 
+REMD> Step:      16000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          3 >     4   A           7 /         8     337.140     351.260
+        2          4 >     3   A           7 /         8     351.260     337.140
+        3          1 >     2   A           6 /         8     300.000     318.120
+        4          2 >     1   A           6 /         8     318.120     300.000
+ 
+  Parameter    :    351.260   337.140   318.120   300.000
+  RepIDtoParmID:          4         3         2         1
+  ParmIDtoRepID:          4         3         2         1
+ 
+REMD> Step:      17000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     0   N           0 /         0     351.260     351.260
+        2          3 >     2   A           8 /         9     337.140     318.120
+        3          2 >     3   A           8 /         9     318.120     337.140
+        4          1 >     0   N           0 /         0     300.000     300.000
+ 
+  Parameter    :    351.260   318.120   337.140   300.000
+  RepIDtoParmID:          4         2         3         1
+  ParmIDtoRepID:          4         2         3         1
+ 
+REMD> Step:      18000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     3   R           7 /         9     351.260     351.260
+        2          2 >     1   A           7 /         9     318.120     300.000
+        3          3 >     4   R           7 /         9     337.140     337.140
+        4          1 >     2   A           7 /         9     300.000     318.120
+ 
+  Parameter    :    351.260   300.000   337.140   318.120
+  RepIDtoParmID:          4         1         3         2
+  ParmIDtoRepID:          2         4         3         1
+ 
+REMD> Step:      19000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     0   N           0 /         0     351.260     351.260
+        2          1 >     0   N           0 /         0     300.000     300.000
+        3          3 >     2   R           8 /        10     337.140     337.140
+        4          2 >     3   R           8 /        10     318.120     318.120
+ 
+  Parameter    :    351.260   300.000   337.140   318.120
+  RepIDtoParmID:          4         1         3         2
+  ParmIDtoRepID:          2         4         3         1
+ 
+REMD> Step:      20000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     3   R           7 /        10     351.260     351.260
+        2          1 >     2   A           8 /        10     300.000     318.120
+        3          3 >     4   R           7 /        10     337.140     337.140
+        4          2 >     1   A           8 /        10     318.120     300.000
+ 
+  Parameter    :    351.260   318.120   337.140   300.000
+  RepIDtoParmID:          4         2         3         1
+  ParmIDtoRepID:          4         2         3         1
+ 
+REMD> Step:      21000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     0   N           0 /         0     351.260     351.260
+        2          2 >     3   A           9 /        11     318.120     337.140
+        3          3 >     2   A           9 /        11     337.140     318.120
+        4          1 >     0   N           0 /         0     300.000     300.000
+ 
+  Parameter    :    351.260   337.140   318.120   300.000
+  RepIDtoParmID:          4         3         2         1
+  ParmIDtoRepID:          4         3         2         1
+ 
+REMD> Step:      22000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     3   A           8 /        11     351.260     337.140
+        2          3 >     4   A           8 /        11     337.140     351.260
+        3          2 >     1   R           8 /        11     318.120     318.120
+        4          1 >     2   R           8 /        11     300.000     300.000
+ 
+  Parameter    :    337.140   351.260   318.120   300.000
+  RepIDtoParmID:          3         4         2         1
+  ParmIDtoRepID:          4         3         1         2
+ 
+REMD> Step:      23000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          3 >     2   A          10 /        12     337.140     318.120
+        2          4 >     0   N           0 /         0     351.260     351.260
+        3          2 >     3   A          10 /        12     318.120     337.140
+        4          1 >     0   N           0 /         0     300.000     300.000
+ 
+  Parameter    :    318.120   351.260   337.140   300.000
+  RepIDtoParmID:          2         4         3         1
+  ParmIDtoRepID:          4         1         3         2
+ 
+REMD> Step:      24000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     1   R           8 /        12     318.120     318.120
+        2          4 >     3   R           8 /        12     351.260     351.260
+        3          3 >     4   R           8 /        12     337.140     337.140
+        4          1 >     2   R           8 /        12     300.000     300.000
+ 
+  Parameter    :    318.120   351.260   337.140   300.000
+  RepIDtoParmID:          2         4         3         1
+  ParmIDtoRepID:          4         1         3         2
+ 
+REMD> Step:      25000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     3   A          11 /        13     318.120     337.140
+        2          4 >     0   N           0 /         0     351.260     351.260
+        3          3 >     2   A          11 /        13     337.140     318.120
+        4          1 >     0   N           0 /         0     300.000     300.000
+ 
+  Parameter    :    337.140   351.260   318.120   300.000
+  RepIDtoParmID:          3         4         2         1
+  ParmIDtoRepID:          4         3         1         2
+ 
+REMD> Step:      26000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          3 >     4   A           9 /        13     337.140     351.260
+        2          4 >     3   A           9 /        13     351.260     337.140
+        3          2 >     1   A           9 /        13     318.120     300.000
+        4          1 >     2   A           9 /        13     300.000     318.120
+ 
+  Parameter    :    351.260   337.140   300.000   318.120
+  RepIDtoParmID:          4         3         1         2
+  ParmIDtoRepID:          3         4         2         1
+ 
+REMD> Step:      27000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     0   N           0 /         0     351.260     351.260
+        2          3 >     2   R          11 /        14     337.140     337.140
+        3          1 >     0   N           0 /         0     300.000     300.000
+        4          2 >     3   R          11 /        14     318.120     318.120
+ 
+  Parameter    :    351.260   337.140   300.000   318.120
+  RepIDtoParmID:          4         3         1         2
+  ParmIDtoRepID:          3         4         2         1
+ 
+REMD> Step:      28000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          4 >     3   A          10 /        14     351.260     337.140
+        2          3 >     4   A          10 /        14     337.140     351.260
+        3          1 >     2   A          10 /        14     300.000     318.120
+        4          2 >     1   A          10 /        14     318.120     300.000
+ 
+  Parameter    :    337.140   351.260   318.120   300.000
+  RepIDtoParmID:          3         4         2         1
+  ParmIDtoRepID:          4         3         1         2
+ 
+REMD> Step:      29000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          3 >     2   A          12 /        15     337.140     318.120
+        2          4 >     0   N           0 /         0     351.260     351.260
+        3          2 >     3   A          12 /        15     318.120     337.140
+        4          1 >     0   N           0 /         0     300.000     300.000
+ 
+  Parameter    :    318.120   351.260   337.140   300.000
+  RepIDtoParmID:          2         4         3         1
+  ParmIDtoRepID:          4         1         3         2
+ 
+REMD> Step:      30000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     1   A          11 /        15     318.120     300.000
+        2          4 >     3   A          11 /        15     351.260     337.140
+        3          3 >     4   A          11 /        15     337.140     351.260
+        4          1 >     2   A          11 /        15     300.000     318.120
+ 
+  Parameter    :    300.000   337.140   351.260   318.120
+  RepIDtoParmID:          1         3         4         2
+  ParmIDtoRepID:          1         4         2         3
+ 
+REMD> Step:      31000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     0   N           0 /         0     300.000     300.000
+        2          3 >     2   A          13 /        16     337.140     318.120
+        3          4 >     0   N           0 /         0     351.260     351.260
+        4          2 >     3   A          13 /        16     318.120     337.140
+ 
+  Parameter    :    300.000   318.120   351.260   337.140
+  RepIDtoParmID:          1         2         4         3
+  ParmIDtoRepID:          1         2         4         3
+ 
+REMD> Step:      32000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     2   R          11 /        16     300.000     300.000
+        2          2 >     1   R          11 /        16     318.120     318.120
+        3          4 >     3   A          12 /        16     351.260     337.140
+        4          3 >     4   A          12 /        16     337.140     351.260
+ 
+  Parameter    :    300.000   318.120   337.140   351.260
+  RepIDtoParmID:          1         2         3         4
+  ParmIDtoRepID:          1         2         3         4
+ 
+REMD> Step:      33000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     0   N           0 /         0     300.000     300.000
+        2          2 >     3   A          14 /        17     318.120     337.140
+        3          3 >     2   A          14 /        17     337.140     318.120
+        4          4 >     0   N           0 /         0     351.260     351.260
+ 
+  Parameter    :    300.000   337.140   318.120   351.260
+  RepIDtoParmID:          1         3         2         4
+  ParmIDtoRepID:          1         3         2         4
+ 
+REMD> Step:      34000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     2   A          12 /        17     300.000     318.120
+        2          3 >     4   A          13 /        17     337.140     351.260
+        3          2 >     1   A          12 /        17     318.120     300.000
+        4          4 >     3   A          13 /        17     351.260     337.140
+ 
+  Parameter    :    318.120   351.260   300.000   337.140
+  RepIDtoParmID:          2         4         1         3
+  ParmIDtoRepID:          3         1         4         2
+ 
+REMD> Step:      35000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     3   R          14 /        18     318.120     318.120
+        2          4 >     0   N           0 /         0     351.260     351.260
+        3          1 >     0   N           0 /         0     300.000     300.000
+        4          3 >     2   R          14 /        18     337.140     337.140
+ 
+  Parameter    :    318.120   351.260   300.000   337.140
+  RepIDtoParmID:          2         4         1         3
+  ParmIDtoRepID:          3         1         4         2
+ 
+REMD> Step:      36000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          2 >     1   A          13 /        18     318.120     300.000
+        2          4 >     3   A          14 /        18     351.260     337.140
+        3          1 >     2   A          13 /        18     300.000     318.120
+        4          3 >     4   A          14 /        18     337.140     351.260
+ 
+  Parameter    :    300.000   337.140   318.120   351.260
+  RepIDtoParmID:          1         3         2         4
+  ParmIDtoRepID:          1         3         2         4
+ 
+REMD> Step:      37000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     0   N           0 /         0     300.000     300.000
+        2          3 >     2   A          15 /        19     337.140     318.120
+        3          2 >     3   A          15 /        19     318.120     337.140
+        4          4 >     0   N           0 /         0     351.260     351.260
+ 
+  Parameter    :    300.000   318.120   337.140   351.260
+  RepIDtoParmID:          1         2         3         4
+  ParmIDtoRepID:          1         2         3         4
+ 
+REMD> Step:      38000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     2   R          13 /        19     300.000     300.000
+        2          2 >     1   R          13 /        19     318.120     318.120
+        3          3 >     4   A          15 /        19     337.140     351.260
+        4          4 >     3   A          15 /        19     351.260     337.140
+ 
+  Parameter    :    300.000   318.120   351.260   337.140
+  RepIDtoParmID:          1         2         4         3
+  ParmIDtoRepID:          1         2         4         3
+ 
+REMD> Step:      39000   Dimension:    1   ExchangePattern:    2
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     0   N           0 /         0     300.000     300.000
+        2          2 >     3   R          15 /        20     318.120     318.120
+        3          4 >     0   N           0 /         0     351.260     351.260
+        4          3 >     2   R          15 /        20     337.140     337.140
+ 
+  Parameter    :    300.000   318.120   351.260   337.140
+  RepIDtoParmID:          1         2         4         3
+  ParmIDtoRepID:          1         2         4         3
+ 
+REMD> Step:      40000   Dimension:    1   ExchangePattern:    1
+  Replica      ExchangeTrial             AcceptanceRatio      Before       After
+        1          1 >     2   A          14 /        20     300.000     318.120
+        2          2 >     1   A          14 /        20     318.120     300.000
+        3          4 >     3   A          16 /        20     351.260     337.140
+        4          3 >     4   A          16 /        20     337.140     351.260
+ 
+  Parameter    :    318.120   300.000   337.140   351.260
+  RepIDtoParmID:          2         1         3         4
+  ParmIDtoRepID:          2         1         3         4
+ 
+ 
+[STEP6] Deallocate Arrays
+ 
+Output_Time> Averaged timer profile (Min, Max)
+  total time      =    1019.826
+    setup         =      17.373
+    dynamics      =    1002.453
+      energy      =     798.986
+      integrator  =      88.350
+      pairlist    =      67.478 (      55.779,      79.750)
+  energy           
+    bond          =       0.122 (       0.086,       0.206)
+    angle         =       0.157 (       0.041,       0.721)
+    dihedral      =       0.435 (       0.104,       1.910)
+    nonbond       =     778.487 (     746.391,     810.355)
+      pme real    =     635.230 (     567.495,     693.288)
+      pme recip   =     143.235 (     117.046,     180.899)
+    solvation     =       0.000 (       0.000,       0.000)
+      polar       =       0.000 (       0.000,       0.000)
+      non-polar   =       0.000 (       0.000,       0.000)
+    restraint     =       0.000 (       0.000,       0.000)
+    qmmm          =       0.000 (       0.000,       0.000)
+  integrator       
+    constraint    =       5.376 (       5.122,       5.704)
+    update        =       8.548 (       8.243,       9.476)
+    comm_coord    =       0.000 (       0.000,       0.000)
+    comm_force    =      61.431 (      38.840,      95.558)
+    comm_migrate  =       0.000 (       0.000,       0.000)
+
