@@ -1,0 +1,31 @@
+open unit 1 card read name ../top_all36_prot.rtf
+read rtf card unit 1
+close unit 1
+
+open unit 1 card read name ../par_all36_prot.prm
+read para card unit 1
+close unit 1
+
+read sequ card
+* Poly-alanine
+*
+3
+ALA ALA ALA
+generate PROA setup first ACE last CT3
+
+ic para
+ic seed 1 N 1 CA 1 C
+ic build
+
+coor stat sele all end
+coor trans xdir -?xave ydir -?yave zdir -?zave
+
+open write formatted unit 1 name ./ala3.psf
+write psf card xplor unit 1
+close unit 1
+
+open unit 1 card write name ./ala3.pdb
+write coor pdb unit 1
+close unit 1
+
+stop

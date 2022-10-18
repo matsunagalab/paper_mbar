@@ -1,0 +1,54 @@
+[INPUT]
+topfile = ../1_setup/top_all36_prot.rtf     # topology file
+parfile = ../1_setup/par_all36_prot.prm     # parameter file
+strfile = ../1_setup/toppar_water_ions.str  # stream file
+psffile = ../1_setup/wbox.psf               # protein structure file
+pdbfile = ../1_setup/wbox.pdb               # PDB file
+reffile = ../1_setup/wbox.pdb               # PDB file for restraints
+rstfile = step2.2.rst                       # restart file
+
+[OUTPUT]
+dcdfile  = step2.3.dcd       # DCD trajectory file
+rstfile  = step2.3.rst       # restart file
+
+[ENERGY]
+forcefield       = CHARMM    # CHARMM force field
+electrostatic    = PME       # Particle Mesh Ewald method
+switchdist       = 10.0      # switch distance
+cutoffdist       = 12.0      # cutoff distance
+pairlistdist     = 13.5      # pair-list distance
+vdw_force_switch = YES       # force switch option for van der Waals
+pme_nspline      = 4         # order of B-spline in [PME]
+pme_max_spacing  = 1.0       # max grid spacing
+
+[DYNAMICS]
+integrator       = LEAP      # leapfrog Verlet integrator
+nsteps           =  5000     # number of MD steps
+timestep         = 0.002     # timestep (ps)
+eneout_period    =    10     # energy output period
+crdout_period    =   100     # coordinates output period
+rstout_period    =  5000     # restart output period
+nbupdate_period  =    10     # nonbond update period
+
+[CONSTRAINTS]
+rigid_bond       = YES       # constraints all bonds involving hydrogen
+
+[ENSEMBLE]
+ensemble         = NPT       # NPT ensemble
+tpcontrol        = LANGEVIN  # thermostat and barostat
+temperature      = 300.00    # initial and target temperature (K)
+pressure         = 1.0       # initial and target pressure (atm)
+isotropy         = ISO       # isotropic pressure coupling
+
+[BOUNDARY]
+type             = PBC       # periodic boundary condition
+
+[SELECTION]
+group1           = sid:PROA and heavy
+
+[RESTRAINTS]
+nfunctions       = 1        # number of functions
+function1        = POSI     # restraint function type
+direction1       = ALL      # direction
+constant1        = 1.0      # force constant
+select_index1    = 1        # restrained groups

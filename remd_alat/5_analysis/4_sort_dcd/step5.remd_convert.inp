@@ -1,0 +1,33 @@
+[INPUT]
+psffile = ../../1_setup/wbox.psf
+reffile = ../../1_setup/wbox.pdb
+dcdfile = ../../4_production/step4_rep{}.dcd
+remfile = ../../4_production/step4_rep{}.rem
+logfile = ../../4_production/step4_rep{}.log     # REMD energy log file
+
+[OUTPUT]
+pdbfile = trialanine.pdb
+trjfile = remd_paramID{}_trialanine.dcd
+logfile = remd_paramID{}.log    # REMD energy log file
+
+[SELECTION]
+group1 = atomno:1-42
+group2 = resno:2 and (an:N or an:CA or an:C or an:O)
+
+[FITTING]
+fitting_method = NO
+#fitting_atom   = 2
+#mass_weight    = YES
+
+[OPTION]
+nsteps           = 2500000   # number of MD steps
+num_replicas    = 20              # total number of replicas used in the simulation
+check_only    = NO
+convert_type  = PARAMETER
+convert_ids   =  
+crdout_period = 500
+eneout_period    =   500     # energy output period
+trjout_format = DCD
+trjout_type   = COOR+BOX
+trjout_atom   = 1
+pbc_correct   = NO

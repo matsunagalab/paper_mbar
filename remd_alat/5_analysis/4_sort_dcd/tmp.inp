@@ -1,0 +1,27 @@
+[INPUT]
+psffile = ../../1_setup/wbox.psf             # protein structure file
+reffile = ../../1_setup/wbox.pdb             # PDB file
+
+[OUTPUT]
+torfile = tmp.tor              # torsion angle file
+
+[TRAJECTORY]
+trjfile1      = tmp.dcd     # output trajectory file
+md_step1      = 2500000                          # number of MD steps
+mdout_period1 = 500                              # MD output period
+ana_period1   = 500                              # analysis period
+
+trj_format    = DCD                              # (PDB/DCD)
+trj_type      = COOR+BOX                         # (COOR/COOR+BOX)
+trj_natom     = 42
+
+[OPTION]
+check_only     = NO
+torsion1       = PROA:1:ALA:C  \
+                 PROA:2:ALA:N  \
+                 PROA:2:ALA:CA \
+                 PROA:2:ALA:C             # PHI angle
+torsion2       = PROA:2:ALA:N  \
+                 PROA:2:ALA:CA \
+                 PROA:2:ALA:C  \
+                 PROA:3:ALA:N             # PSI angle

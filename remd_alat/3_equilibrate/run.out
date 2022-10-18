@@ -1,0 +1,331 @@
+****************************************************
+*                                                  *
+*                  GENESIS SPDYN                   *
+*                                                  *
+*        A Molecular Dynamics Simulator with       *
+*           Spatial Decomposition Scheme           *
+*                                                  *
+*               Developed by RIKEN                 *
+*                                                  *
+****************************************************
+ 
+[STEP0] Architecture and Compiler Information
+ 
+GENESIS_Information> GENESIS Information
+  version      = 1.3.0
+  commit ID    = $GENESIS_VERSION$
+  precision    = double
+  nonbonding   = CPU
+
+Build_Information> Compiler Information
+  build host   = yasu@eel
+  fortran      = ifort (IFORT) 16.0.2 20160204
+  option       = -xHost -O3 -ip -mkl=parallel  -assume byterecl -qopenmp 
+  C            = icc (ICC) 16.0.2 20160204
+  option       = -O3 -ip -axCORE-AVX2  -qopenmp
+  defined var. =  -DMPI -DOMP -DFFTE -DLAPACK -DDSFMT_MEXP=19937 -DINTEL
+  link option  = 
+  -assume byterecl -qopenmp -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -lmkl_l
+ apack95_lp64 
+
+Runtime_Information> Machine and Library Information
+  date       = 2018/10/13 14:51:40
+  cpu model    = Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz
+  exec. host   = yasu@eel07
+  LD library   = 
+ /usr/local/cuda-8.0/lib64:/home/mdsoft/mpi/mpi_cent-v6_intel64/openmpi-v1.10.1_
+ intel_v15.0.4/lib:/opt/intel/compilers_and_libraries_2016.2.181/linux/tbb/lib/i
+ ntel64/gcc4.4:/opt/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/
+ intel64:/opt/intel/compilers_and_libraries_2016.2.181/linux/mkl/lib/intel64:/op
+ t/intel/compilers_and_libraries_2016.2.181/linux/compiler/lib/intel64:/opt/inte
+ l/compilers_and_libraries_2016.2.181/linux/compiler/lib/intel64_lin:/usr/local/
+ MATLAB/R2014a/sys/opengl/lib/glnxa64:/usr/local/cuda-8.0/lib64:/home/mdsoft/mpi
+ /mpi_cent-v6_intel64/openmpi-v1.10.1_intel_v15.0.4/lib:/opt/intel/compilers_and
+ _libraries_2016.2.181/linux/tbb/lib/intel64/gcc4.4:/opt/intel/compilers_and_lib
+ raries_2016.2.181/linux/compiler/lib/intel64:/opt/intel/compilers_and_libraries
+ _2016.2.181/linux/mkl/lib/intel64:/opt/intel/compilers_and_libraries_2016.2.181
+ /linux/compiler/lib/intel64:/opt/intel/compilers_and_libraries_2016.2.181/linux
+ /compiler/lib/intel64_lin
+
+[STEP1] Read Control Parameters
+ 
+Read_Ctrl_Input> Input Files
+  topfile = ../1_setup/top_all36_prot.rtf
+  parfile = ../1_setup/par_all36_prot.prm
+  strfile = ../1_setup/toppar_water_ions.str
+  psffile = ../1_setup/wbox.psf
+  pdbfile = ../1_setup/wbox.pdb
+  rstfile = ../2_minimize_pre-equi/step2.4.rst
+ 
+Read_Ctrl_Output> Output Files
+  logfile    = step3_rep{}.log
+  dcdfile    = step3_rep{}.dcd
+  rstfile    = step3_rep{}.rst
+  remfile    = step3_rep{}.rem
+ 
+Read_Ctrl_Remd> Replica information
+  dimension       =          1  nreplica        =         20
+  variable        = TEMPERATURE
+  parameters      = 300.00 302.53 305.09 307.65 310.24                   312.85 315.47 318.12 320.78 323.46                   326.16 328.87 331.61 334.37 337.14                   339.94 342.75 345.59 348.44 351.26
+  cyclic_params   = no
+
+Read_Ctrl_Energy> Parameters of Energy Calculations
+  forcefield      =     CHARMM
+  switchdist      =     10.000  cutoffdist      =     12.000
+  pairlistdist    =     13.500  dielec_const    =      1.000
+ vdW force_switch =        yes
+  electrostatic   =        PME
+  pme_nspline     =          4
+  pme_alpha       =    0.22664  pme_alpha_tol   =  0.100E-04
+  fft_scheme      = 1DALLTOALL
+  table_order     =          1
+  table_density   =     20.000
+  water_model     =       NONE
+  output_style    =    GENESIS
+  dispersion_corr =       none
+  nonb_limiter    =      no
+  contact_check   =      no
+ 
+Read_Ctrl_Dynamics> Parameters of MD simulation
+  integrator      =       LEAP  nsteps          =       5000
+  timestep        =     0.0020  initial_time    =     0.0000
+  eneout_period   =         10  rstout_period   =       5000
+  crdout_period   =        100  velout_period   =          0
+  nbupdate_period =         10  stoptr_period   =         10
+  iseed           =         -1
+  annealing       =         no
+  verbose         =         no
+  target_md       =         no
+  steered_md      =         no
+ 
+Read_Ctrl_Constraints> Parameters for Constraints
+  rigid_bond      =        yes
+  shake_iteration =        500  shake_tolerance =  0.100E-09
+  fast_bond       =         no
+  fast_water      =        yes  water_model     =       TIP3
+  hydrogen_type   =       name
+ 
+Read_Ctrl_Ensemble> Parameters for Ensemble
+  ensemble        =        NVT
+  temperature     =    300.000
+  tpcontrol       =   LANGEVIN
+  gamma_t         =      1.000
+ 
+Read_Ctrl_Boundary> Parameters of Boundary Condition
+  type            =       PBC 
+  box_size(x,y,z) =      0.000     0.000     0.000
+ 
+Read_Ctrl_Selection> Parameters of Selection
+  # of groups     =          0
+  # of mole names =          0
+ 
+Read_Ctrl_Restraints> No restraint in the system
+
+Read_Ctrl_Fitting_MD> Parameters of Fitting
+  fitting method  =  TR+ROT   
+  fitting atom    = group1
+  mass_weight     =         no
+ 
+[STEP2] Setup MPI
+ 
+Setup_Mpi_Remd> Summary of Setup MPI
+  number of MPI processes                =         40
+  number of MPI processes in one replica =          2
+  number of OpenMP threads               =          3
+  total number of CPU cores              =        120
+     world_rank     country_no   country_rank
+              0              0              0  REAL  RECP  MASTER
+              1              0              1  REAL  RECP        
+              2              1              0  REAL  RECP  MASTER
+              3              1              1  REAL  RECP        
+              4              2              0  REAL  RECP  MASTER
+              5              2              1  REAL  RECP        
+              6              3              0  REAL  RECP  MASTER
+              7              3              1  REAL  RECP        
+              8              4              0  REAL  RECP  MASTER
+              9              4              1  REAL  RECP        
+             10              5              0  REAL  RECP  MASTER
+             11              5              1  REAL  RECP        
+             12              6              0  REAL  RECP  MASTER
+             13              6              1  REAL  RECP        
+             14              7              0  REAL  RECP  MASTER
+             15              7              1  REAL  RECP        
+             16              8              0  REAL  RECP  MASTER
+             17              8              1  REAL  RECP        
+             18              9              0  REAL  RECP  MASTER
+             19              9              1  REAL  RECP        
+             20             10              0  REAL  RECP  MASTER
+             21             10              1  REAL  RECP        
+             22             11              0  REAL  RECP  MASTER
+             23             11              1  REAL  RECP        
+             24             12              0  REAL  RECP  MASTER
+             25             12              1  REAL  RECP        
+             26             13              0  REAL  RECP  MASTER
+             27             13              1  REAL  RECP        
+             28             14              0  REAL  RECP  MASTER
+             29             14              1  REAL  RECP        
+             30             15              0  REAL  RECP  MASTER
+             31             15              1  REAL  RECP        
+             32             16              0  REAL  RECP  MASTER
+             33             16              1  REAL  RECP        
+             34             17              0  REAL  RECP  MASTER
+             35             17              1  REAL  RECP        
+             36             18              0  REAL  RECP  MASTER
+             37             18              1  REAL  RECP        
+             38             19              0  REAL  RECP  MASTER
+             39             19              1  REAL  RECP        
+
+[STEP3] Set Relevant Variables and Structures
+ 
+Input_Top> Summary of Topfile
+  num_atom_class  =         53  num_resi_type   =         50
+ 
+Input_Par> Summary of Parfile
+  num_bonds       =        132  num_angles      =        364
+  num_dihedrals   =        706  num_impropers   =         35
+  num_atom_cls    =         53  num_nbfix       =          0
+  num_cmap_terms  =          6
+ 
+Input_Str> Summary of Top information
+  num_atom_class  =         68  num_resi_type   =         64
+ 
+Input_Str> Summary of Par information
+  num_bonds       =        135  num_angles      =        365
+  num_dihedrals   =        706  num_impropers   =         35
+  num_atom_cls    =         68  num_nbfix       =         11
+  num_cmap_terms  =          6
+ 
+Read_Psf> Summary of Psffile
+  psftype         =      xplor
+  num_atoms       =      11859  num_bonds       =       7919
+  num_angles      =       4011  num_dihedrals   =         91
+  num_impropers   =          8  num_cmap_terms  =          3
+  num_HB_donors   =          0  num_HB_acceptors=          0
+  num_NB_exclusion=          0  num_groups      =          1
+  total_charge    =      0.000
+ 
+Read_Pdb> Summary of Data in PDB file
+  num_atoms       =      11859
+ 
+Read_Rst_Binary> Summary of RST file
+  num_atoms       =      11859  iseed           =     387974
+  boxsize (x,y,z) =     48.911    48.911    48.911
+Define_Molecule> Summary of molecules
+  num_atoms       =      11859  num_bonds       =       7919
+  num_angles      =       4011  num_dihedrals   =         91
+  num_impropers   =          8  num_cmap_terms  =          3
+  num_residues    =       3942  num_molecules   =       3940
+  num_segments    =          2  num_deg_freedom =      35577
+  total_charge    =      0.000
+ 
+Setup_Restart_Pre> Coordinates and velocities were replaced
+
+Setup_Boundary_Cell> Set Variables for Boundary Condition
+  domains (x,y,z) =          2         1         1
+  ncells (x,y,z)  =          6         6         6
+ 
+Setup_Enefunc_Cmap> Natural spline is used to derive cmap coefs.
+
+Define_Enefunc_Charmm> Number of Interactions in Each Term
+  bond_ene        =         19  angle_ene       =         72
+  torsion_ene     =         95  improper_ene    =          8
+  cmap_ene        =          3
+  nb_exclusions   =      11930  nb14_calc       =         91
+ 
+Setup_Fitting_Spdyn> NO fitting is applied, skip
+  fitting method  =  NO
+ 
+
+Setup_PME> Proper PME grid number was generated automatically
+  pme_ngrid(x,y,z)=         48        48        48
+
+Setup_Dynamics> Subtract 3 translational degrees of freedom
+ 
+Update_Num_Deg_Freedom> Number of degrees of freedom was updated
+  num_deg_freedom =      35574 (After removing translation)
+ 
+Random_Init> Initialize the random number
+  seed            = 615624
+
+Setup_Fast_Water> Setup constraints for SETTLE
+  r0(O-H)         =     0.9572  mass(O)         =    15.9994
+  r0(H-H)         =     1.5139  mass(H)         =     1.0080
+ 
+Update_Num_Deg_Freedom> Number of degrees of freedom was updated
+  num_deg_freedom =      23757 (After setup of SETTLE)
+ 
+Setup_Rigid_Bond> Setup constrains for SHAKE and RATTLE
+  num_rigid_bonds =         22
+ 
+Update_Num_Deg_Freedom> Number of degrees of freedom was updated
+  num_deg_freedom =      23735 (After setup of SHAKE/RATTLE)
+ 
+Setup_Remd> Replica information
+
+  ParmsetID
+          1 =           1
+          2 =           2
+          3 =           3
+          4 =           4
+          5 =           5
+          6 =           6
+          7 =           7
+          8 =           8
+          9 =           9
+         10 =          10
+         11 =          11
+         12 =          12
+         13 =          13
+         14 =          14
+         15 =          15
+         16 =          16
+         17 =          17
+         18 =          18
+         19 =          19
+         20 =          20
+
+  Parameters
+    Dim   1 =     300.000    302.530    305.090    307.650    310.240    312.850    315.470    318.120    320.780    323.460    326.160    328.870    331.610    334.370    337.140    339.940    342.750    345.590    348.440    351.260
+Setup_Restart_Post> Read random seed  from RST file and Overwrite it
+
+Random_Mpi_Frombyte> MPI communicator size was changed from previous run.
+                     skip read random internal state of restart file.
+Setup_Restart_Post> Parameters were replaced
+
+[STEP4] Compute Single Point Energy for Molecules
+ 
+            STEP            BOND           ANGLE    UREY-BRADLEY        DIHEDRAL        IMPROPER            CMAP         VDWAALS           ELECT
+ --------------- --------------- --------------- --------------- ---------------
+               0          7.7548         23.3603          1.3082         14.5520          2.6874         -0.0926       4172.0483     -42436.3600
+
+[STEP5] Perform Replica-Exchange MD Simulation
+ 
+ 
+[STEP6] Deallocate Arrays
+ 
+Output_Time> Averaged timer profile (Min, Max)
+  total time      =     166.916
+    setup         =       0.972
+    dynamics      =     165.944
+      energy      =     143.444
+      integrator  =       9.716
+      pairlist    =      12.585 (       9.667,      23.673)
+  energy           
+    bond          =       0.022 (       0.011,       0.037)
+    angle         =       0.048 (       0.028,       0.084)
+    dihedral      =       0.105 (       0.059,       0.223)
+    nonbond       =     138.689 (     109.261,     255.849)
+      pme real    =     118.409 (      90.621,     224.995)
+      pme recip   =      20.241 (      13.950,      43.963)
+    solvation     =       0.000 (       0.000,       0.000)
+      polar       =       0.000 (       0.000,       0.000)
+      non-polar   =       0.000 (       0.000,       0.000)
+    restraint     =       0.000 (       0.000,       0.000)
+    qmmm          =       0.000 (       0.000,       0.000)
+  integrator       
+    constraint    =       1.051 (       0.767,       1.969)
+    update        =       0.776 (       0.614,       1.321)
+    comm_coord    =       0.899 (       0.340,       2.017)
+    comm_force    =       0.573 (       0.403,       0.996)
+    comm_migrate  =       0.000 (       0.000,       0.000)
+

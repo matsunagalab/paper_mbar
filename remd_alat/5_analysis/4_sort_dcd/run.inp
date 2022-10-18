@@ -1,0 +1,43 @@
+[INPUT]
+psffile = ../../1_setup/wbox.psf
+reffile = ../../1_setup/wbox.pdb
+dcdfile = ../../4_production/step4_rep{}.dcd
+remfile = ../../4_production/step4_rep{}.rem
+logfile = ../../4_production/step4_rep{}.log     # REMD energy log file
+ 
+[OUTPUT]
+pdbfile = trialanine.pdb
+trjfile = remd_paramID{}_trialanine.dcd
+logfile = remd_paramID{}.log    # REMD energy log file
+allow_backup   = no              # allow backup of existing output files
+ 
+[SELECTION]
+group1 = atomno:1-42
+# group2         = molname:protein # selection group 2
+# mole_name1     = protein  P1:1:TYR P1:5:MET
+# mole_name2     = lipid    OLEO:PCGL:OLEO
+ 
+[FITTING]
+fitting_method = NO              # [NO,TR,TR+ROT,TR+ZROT,XYTR,XYTR+ZROT]
+# fitting_atom   = 1               # atom group
+# zrot_ngrid     = 10              # number of z-rot grids
+# zrot_grid_size = 1.0             # z-rot grid size
+# mass_weight    = NO              # mass-weight is not applied
+ 
+[OPTION]
+check_only      = NO            # (YES/NO)
+convert_type    = PARAMETER      # (REPLICA/PARAMETER)
+num_replicas    = 20              # total number of replicas used in the simulation
+convert_ids     =                # selected index (empty = all)(example: 1 2 5-10)
+nsteps          = 2500000        # nsteps in [DYNAMICS]
+exchange_period = 2500             # exchange_period in [REMD]
+crdout_period   = 500             # crdout_period in [DYNAMICS]
+eneout_period   = 500            # eneout_period in [DYNAMICS]
+trjout_format   = DCD            # (PDB/DCD)
+trjout_type     = COOR+BOX       # (COOR/COOR+BOX)
+trjout_atom     = 1              # atom group
+centering       = NO             # shift center of mass (YES requres psf/prmtop/grotop)
+centering_atom  = 1              # atom group
+center_coord    = 0.0 0.0 0.0    # target center coordinates
+pbc_correct     = NO             # (NO/MOLECULE)
+
